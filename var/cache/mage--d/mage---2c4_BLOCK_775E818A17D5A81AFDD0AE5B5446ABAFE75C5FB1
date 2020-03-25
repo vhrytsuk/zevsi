@@ -1,6 +1,0 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1584556757;s:6:"expire";i:1584560357;s:4:"tags";s:45:"2c4_BLOCK_HTML,2c4_CAT_C,2c4_CAT_C_4,2c4_MAGE";}
-
-<nav class="navigation" data-action="navigation">
-    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
-        <li  class="level0 nav-1 category-item first last level-top"><a href="http://magento2work.local/new-product.html"  class="level-top" ><span>New Product</span></a></li>            </ul>
-</nav>

@@ -1,1 +1,0 @@
-/var/www/html/smileOssWork/vendor/magento/theme-frontend-blank/Magento_Theme/web/js/responsive.js

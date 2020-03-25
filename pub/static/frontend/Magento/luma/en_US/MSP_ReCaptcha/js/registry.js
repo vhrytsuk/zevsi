@@ -1,1 +1,0 @@
-/var/www/html/smileOssWork/vendor/msp/recaptcha/view/frontend/web/js/registry.js

@@ -1,0 +1,368 @@
+& when (@media-common = true) {
+    .page-header {
+        .panel.header {
+            padding-top: 16px;
+            padding-bottom: 19px;
+            display: flex;
+            justify-content: space-between;
+
+            & > .header.links {
+                margin-left: 5%;
+
+                .authorization-link {
+                    margin-left: 0;
+
+                    & > a {
+                        .lib-icon-image(
+                            @_icon-image: '@{baseDir}/images/icons/lock1.png',
+                            @_icon-image-width: 15px,
+                            @_icon-image-height: 20px
+                        );
+                        position: relative;
+                        padding-left: 20px;
+
+                        &::before {
+                            position: absolute;
+                            left: 0;
+                            top: 1px;
+                        }
+
+                        &:hover {
+                            &::before {
+                                background-position: 0 -49px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .switcher {
+                margin-right: 0;
+
+                .options {
+                    display: flex;
+
+                    .action.toggle {
+                        margin-right: 13px;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: -16px;
+                            width: 23px;
+                            height: 2px;
+                            left: 0;
+                            background-color: @autotem-color-torch-red;
+                        }
+                    }
+
+                    .selected-language {
+                        margin-left: 13px;
+                    }
+                }
+            }
+        }
+
+        .header.content {
+            padding: 0 55px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &::after,
+            &::before {
+                display: none;
+            }
+
+            .logo {
+                margin: 0 5px 0 0;
+            }
+            .block-search{
+                width: 27%;
+                .action.search{
+                    opacity: 1;
+                    padding-top: 11px;
+                    right: 20px;
+                    &::before{
+                        color: @autotem-color-mine-shaft;
+                        font-size: @font-size-autotem-large;
+                        line-height: 28px;
+                    }
+                }
+            }
+        }
+
+        .contact-number {
+            position: relative;
+            .lib-icon-font(
+                    @icon-down,
+                    @font-icon-blanc-theme,
+                    @font-size-autotem-average,
+                    @_icon-font-line-height:12px,
+                    @_icon-font-color: @autotem-color-mine-shaft,
+                    @_icon-font-position: after
+            );
+
+            &::after {
+                transition: transform .3s;
+                position: absolute;
+            }
+
+            .selected-number {
+                font-size: @font-size-autotem-medium;
+                font-weight: @font-weight__bold;
+                line-height: 7.43px;
+                color: @autotem-color-mine-shaft;
+            }
+
+            .list-rooms {
+                position: absolute;
+                display: none;
+                padding-left: 0;
+                width: 100%;
+                background-color: @autotem-color-athens-gray;
+                list-style-type: none;
+                z-index: 10;
+
+                & > li {
+                    padding: 10px 15px;
+
+                    a {
+                        font-size: @font-size-autotem-medium;
+                    }
+                }
+            }
+
+            &:hover {
+                &::after {
+                    transform: rotate(180deg);
+                }
+
+                .list-rooms {
+                    display: block;
+                }
+            }
+        }
+
+        .phone-callback {
+            color: @autotem-color-mine-shaft;
+            padding: 7px 23px 8px 21px;
+            border: 2px solid @autotem-color-sunglow;
+            line-height: 7.43px;
+        }
+
+        .panel.wrapper {
+            background-color: @autotem-color-athens-gray;
+
+            .panel.header {
+                &::after,
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .actions-list-icons {
+        display: flex;
+        list-style-type: none;
+        padding-left: 0;
+        & > li {
+            margin: 0 10px;
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                height: 100%;
+            }
+
+            &:first-child {
+                a {
+                    .lib-icon-image(
+                        @_icon-image: '@{baseDir}/images/icons/garage.svg',
+                        @_icon-image-width: 26px,
+                        @_icon-image-height: 25px
+                    );
+                    display: flex;
+                }
+            }
+        }
+
+        .link {
+            &.wishlist {
+                a {
+                    .lib-icon-image(
+                        @_icon-image: '@{baseDir}/images/icons/wishlist.svg',
+                        @_icon-image-width: 24px,
+                        @_icon-image-height: 21px
+                    );
+                    display: flex;
+                }
+            }
+
+            &.compare {
+                a {
+                    .lib-icon-image(
+                        @_icon-image: '@{baseDir}/images/icons/compare.svg',
+                        @_icon-image-width: 32px,
+                        @_icon-image-height: 23px
+                    );
+                    display: flex;
+                }
+            }
+        }
+
+        .minicart-wrapper {
+            margin-left: 5px;
+            .action.showcart {
+                .lib-icon-image(
+                    @_icon-image: '@{baseDir}/images/icons/minicart.svg',
+                    @_icon-image-width: 28px,
+                    @_icon-image-height: 27px,
+                    @_icon-image-margin: 0 0 13px,
+                    @_icon-image-text-hide:true
+                );
+                display: flex;
+
+                & > span {
+                    &.text {
+                        position: static;
+                        overflow: visible;
+                        width: auto;
+                        height: auto;
+                    }
+                }
+            }
+        }
+        .counter.qty{
+            .flex-element-center();
+            position: absolute;
+            right: 11px;
+            font-size: @font-size-ver-small;
+            color: @autotem-color-white;
+            background: @autotem-color-torch-red;
+            font-weight: @font-weight__bold;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%
+        }
+    }
+
+    .top-header-list {
+        display: flex;
+        padding-left: 0;
+        list-style-type: none;
+
+        & > li {
+            &:first-child {
+                a {
+                    padding-left: 0;
+                }
+            }
+
+            a {
+                line-height: 7.43px;
+                padding: 0 17px;
+            }
+        }
+    }
+
+    .selected-city {
+        margin-left: 4px;
+
+        &::after,
+        &::before {
+            content: "";
+            width: 1px;
+            top: 0;
+            bottom: 0;
+            background-color: @autotem-color-emperor;
+            position: absolute;
+            opacity: 0.2;
+        }
+
+        &:hover {
+            .favorites-city {
+                &::after {
+                    transform: rotate(180deg);
+                }
+            }
+
+            .list_city {
+                display: block;
+            }
+        }
+
+        .favorites-city {
+            position: relative;
+            cursor: pointer;
+            padding: 0 6px 0 17px;
+            .lib-icon-font(
+                    @icon-down,
+                    @font-icon-blanc-theme,
+                    @font-size-autotem-average,
+                @_icon-font-line-height:12px,
+                @_icon-font-color: @autotem-color-mine-shaft,
+                @_icon-font-position: after
+            );
+
+            &::after {
+                font-weight: @font-weight__bold;
+                transition: all .3s;
+            }
+        }
+
+
+        .list_city {
+            position: absolute;
+            z-index: 10;
+            background-color: @autotem-color-athens-gray;
+            padding: 10px;
+
+            & > li {
+                padding: 5px 10px;
+            }
+        }
+    }
+
+    .city-location {
+        display: flex;
+
+        .your-city {
+            margin-right: 16px;
+        }
+
+        .list_city {
+            list-style-type: none;
+            display: none;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-header {
+        .panel.header {
+            padding-top: 11px;
+            padding-bottom: 14px;
+            position: relative;
+
+            & > .header.links {
+                & > li {
+                    margin: 0 0 0 34px;
+                }
+            }
+        }
+    }
+    .block-search {
+        padding-left: 0;
+        .nested {
+            display: none;
+        }
+
+        .control {
+            padding: 0;
+        }
+    }
+}

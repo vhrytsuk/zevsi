@@ -46,8 +46,8 @@ return [
     ],
     'cache_types' => [
         'config' => 1,
-        'layout' => 1,
-        'block_html' => 1,
+        'layout' => 0,
+        'block_html' => 0,
         'collections' => 1,
         'reflection' => 1,
         'db_ddl' => 1,
@@ -57,9 +57,9 @@ return [
         'config_integration' => 1,
         'config_integration_api' => 1,
         'google_product' => 1,
-        'full_page' => 1,
+        'full_page' => 0,
         'config_webservice' => 1,
-        'translate' => 1,
+        'translate' => 0,
         'vertex' => 1
     ],
     'downloadable_domains' => [
