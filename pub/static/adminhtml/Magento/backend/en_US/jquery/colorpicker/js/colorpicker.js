@@ -1,1 +1,0 @@
-/var/www/html/smileOssWork/lib/web/jquery/colorpicker/js/colorpicker.js

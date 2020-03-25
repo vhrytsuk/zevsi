@@ -105,9 +105,10 @@ dfn {
   font-style: italic;
 }
 h1 {
+  color: #363636;
   font-weight: 700;
   line-height: 12.49px;
-  font-size: 3.4rem;
+  font-size: 2.5rem;
   margin-top: 0rem;
   margin-bottom: 1.8rem;
 }
@@ -564,34 +565,6 @@ select:not([disabled]):focus {
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-@font-face {
-  font-family: 'Open Sans';
-  src: url('../fonts/opensans/light/opensans-300.woff2') format('woff2'), url('../fonts/opensans/light/opensans-300.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Open Sans';
-  src: url('../fonts/opensans/regular/opensans-400.woff2') format('woff2'), url('../fonts/opensans/regular/opensans-400.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Open Sans';
-  src: url('../fonts/opensans/semibold/opensans-600.woff2') format('woff2'), url('../fonts/opensans/semibold/opensans-600.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Open Sans';
-  src: url('../fonts/opensans/bold/opensans-700.woff2') format('woff2'), url('../fonts/opensans/bold/opensans-700.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 @font-face {
   font-family: 'ProximaNova-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   src: url('../fonts/ProximaNova-Regular.woff2') format('woff2'), url('../fonts/ProximaNova-Regular.woff') format('woff');
@@ -12488,6 +12461,9 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
   list-style-type: none;
   display: none;
 }
+.sections.nav-sections {
+  margin-bottom: 16px;
+}
 .section-items .nav-sections-item-content > .navigation {
   display: flex;
   justify-content: space-between;
@@ -12501,6 +12477,8 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
   position: absolute;
   background-color: #eff0f3;
   top: 100%;
+  left: 0;
+  width: 100%;
   display: none;
 }
 .section-items .nav-sections-item-content > .navigation .all-categories-block {
@@ -12621,8 +12599,8 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
   align-items: center;
   text-transform: uppercase;
   color: #ffffff;
-  font-width: 400;
   height: 100%;
+  border-right: 1px solid #777777;
 }
 .catalog-product {
   font-size: 16px;

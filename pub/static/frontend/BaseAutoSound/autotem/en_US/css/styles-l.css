@@ -260,7 +260,7 @@ span.klarna-payments-method-cell > img {
 }
 @media all and (min-width: 768px), print {
   h1 {
-    font-size: 38px;
+    font-size: 34px;
     margin-bottom: 36px;
   }
   .navigation,

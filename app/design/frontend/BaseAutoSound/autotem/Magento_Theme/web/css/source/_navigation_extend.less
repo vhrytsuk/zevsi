@@ -1,4 +1,7 @@
 & when (@media-common = true) {
+    .sections.nav-sections{
+        margin-bottom: 16px;
+    }
     .section-items {
         .nav-sections-item-content {
             & > .navigation {
@@ -15,6 +18,8 @@
                     position: absolute;
                     background-color: @autotem-color-athens-gray;
                     top: 100%;
+                    left: 0;
+                    width: 100%;
                     display: none;
                 }
 
@@ -112,9 +117,8 @@
                 .flex-element-center();
                 text-transform: uppercase;
                 color: @autotem-color-white;
-                font-width: @font-weight__regular;
-                letter-spacing: 2.2px;
                 height: 100%;
+                border-right: 1px solid @autotem-color-boulder;
             }
         }
     }
