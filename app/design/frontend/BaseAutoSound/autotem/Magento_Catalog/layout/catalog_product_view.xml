@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/slider_carousel_css/owl.carousel.min.css" />
+        <css src="css/slider_carousel_css/owl.theme.default.min.css" />
+    </head>
+    <body>
+        <move element="product.info.sku" destination="page.main.title" after="-"/>
+        <move element="product.attributes" destination="product.info.details" before="-"/>
+        <referenceBlock  name="product.attributes">
+            <arguments>
+                <argument name="sort_order" xsi:type="string">10</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock  name="product.info.description">
+            <arguments>
+                <argument name="sort_order" xsi:type="string">20</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

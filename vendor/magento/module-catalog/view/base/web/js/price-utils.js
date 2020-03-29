@@ -45,7 +45,8 @@ define([
 
         // copied from price-option.js | Could be refactored with varien/js.js
 
-        precision = isNaN(format.requiredPrecision = Math.abs(format.requiredPrecision)) ? 2 : format.requiredPrecision;
+        // precision = isNaN(format.requiredPrecision = Math.abs(format.requiredPrecision)) ? 2 : format.requiredPrecision;
+        precision = 0;
         integerRequired = isNaN(format.integerRequired = Math.abs(format.integerRequired)) ? 1 : format.integerRequired;
         decimalSymbol = format.decimalSymbol === undefined ? ',' : format.decimalSymbol;
         groupSymbol = format.groupSymbol === undefined ? '.' : format.groupSymbol;

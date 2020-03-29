@@ -893,6 +893,10 @@ var config = {
 require.config(config);
 })();
 (function() {
+
+require.config(config);
+})();
+(function() {
 /**
  * This file is part of the Klarna KP module
  *

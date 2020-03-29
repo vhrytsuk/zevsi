@@ -1,0 +1,1 @@
+/var/www/html/smileOssWork/lib/web/jquery/jquery.tabs.js

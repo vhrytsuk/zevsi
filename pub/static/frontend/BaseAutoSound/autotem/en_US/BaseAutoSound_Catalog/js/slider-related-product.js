@@ -1,0 +1,1 @@
+/var/www/html/smileOssWork/app/code/BaseAutoSound/Catalog/view/frontend/web/js/slider-related-product.js

@@ -220,6 +220,8 @@ return [
         'Amazon_Payment' => 1,
         'BaseAutoSound_Catalog' => 1,
         'BaseAutoSound_Default' => 1,
+        'BaseAutoSound_Extension' => 1,
+        'BaseAutoSound_FormReviews' => 1,
         'BaseAutoSound_Wishlist' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Klarna_Core' => 1,

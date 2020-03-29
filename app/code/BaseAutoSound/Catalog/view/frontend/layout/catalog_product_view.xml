@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <container name="info.main.description" htmlTag="div" htmlClass="info-main-description" after="product.info.price" />
+        </referenceContainer>
+        <referenceContainer name="product.info.price">
+            <block class="Magento\Cms\Block\Block" name="questions.info.product" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">questions</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="product.info.addto" template="BaseAutoSound_Catalog::product/view/addto.phtml" />
+        <referenceContainer name="product.info.social">
+            <block class="Magento\Cms\Block\Block" name="share.product" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">share_product</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="product.info.details" template="BaseAutoSound_Catalog::product/view/details.phtml" />
+
+<!--        <referenceBlock name="view.addto.wishlist" remove="true"/>-->
+        <!--        <referenceContainer name="product.info.addto">-->
+<!--            <block class="Magento\Catalog\Block\Product\View" name="product.info.socialmedia" template="BaseAutoSound_Catalog::product/social/share_social.phtml" before="-"/>-->
+<!--        </referenceContainer>-->
+<!--        <referenceContainer name="content">-->
+<!--            <container name="related.product.slider" htmlClass="relatis" htmlTag="div" after="product.info.media"/>-->
+<!--        </referenceContainer>-->
+        <referenceBlock name="catalog.product.related" template="BaseAutoSound_Catalog::product/list/items.phtml" />
+        <move element="product.price.final" destination="info.main.description" before="-"/>
+        <move element="productalert.stock" destination="info.main.description" after="product.price.final"/>
+        <move element="product.info.overview" destination="info.main.description" before="product.info.extrahint"/>
+        <move element="product.info.extrahint" destination="info.main.description" after="-"/>
+        <move element="catalog.product.related" destination="content" after="product.info.main" />
+        <move element="product.info.media" destination="content" before="-" />
+    </body>
+</page>

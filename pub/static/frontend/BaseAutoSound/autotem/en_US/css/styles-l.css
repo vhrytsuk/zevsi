@@ -152,7 +152,7 @@ span.klarna-payments-method-cell > img {
   margin-bottom: 25px;
 }
 .delivery-locations-form .delivery-locations-list {
-  border: 1px solid #363636;
+  border: 1px solid #777777;
   max-height: 500px;
   overflow: auto;
 }

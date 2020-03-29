@@ -28,7 +28,7 @@
             <container name="actions.list.menu" htmlTag="ul" htmlClass="actions-list-icons" after="-" />
         </referenceContainer>
         <referenceBlock name="catalog.topnav" template="BaseAutoSound_Default::html/topmenu.phtml">
-            <block class="Magento\Cms\Block\Block" name="additional menu info">
+            <block class="Magento\Cms\Block\Block" name="additional.menu.info">
                 <arguments>
                     <argument name="block_id" xsi:type="string">additional_info_menu</argument>
                 </arguments>

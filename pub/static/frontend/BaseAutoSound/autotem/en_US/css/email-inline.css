@@ -77,11 +77,11 @@ dfn {
   font-style: italic;
 }
 h1 {
-  color: #363636;
+  color: #333333;
   font-weight: 700;
   line-height: 12.49px;
   font-size: 25px;
-  margin-top: 0;
+  margin-top: 20px;
   margin-bottom: 18px;
 }
 h2 {

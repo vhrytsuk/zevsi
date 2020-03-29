@@ -35,12 +35,12 @@ define([
             }
         });
     }
-
+// .attr('role') === requiredReviewTabRole && reviewTab.hasClass('active') 43
     return function (config) {
         var reviewTab = $(config.reviewsTabSelector),
             requiredReviewTabRole = 'tab';
 
-        if (reviewTab.attr('role') === requiredReviewTabRole && reviewTab.hasClass('active')) {
+        if (reviewTab) {
             processReviews(config.productReviewUrl, location.hash === '#reviews');
         } else {
             reviewTab.one('beforeOpen', function () {
