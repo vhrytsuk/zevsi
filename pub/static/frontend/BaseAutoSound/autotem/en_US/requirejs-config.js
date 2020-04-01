@@ -893,6 +893,20 @@ var config = {
 require.config(config);
 })();
 (function() {
+var config = {
+    map: {
+        "*": {
+            'Magento_Catalog/template/product/name.html':
+                'BaseAutoSound_Catalog/template/product/name.html',
+            'Magento_Catalog/template/product/list/listing.html':
+                'BaseAutoSound_Catalog/template/product/list/listing.html',
+            'Magento_Catalog/template/product/addtocart-button.html':
+                'BaseAutoSound_Catalog/template/product/addtocart-button.html',
+        }
+    },
+
+    deps: ['BaseAutoSound_Catalog/js/owl.carousel']
+};
 
 require.config(config);
 })();
@@ -980,6 +994,13 @@ var config = {
         'Magento_Theme/js/responsive',
         'Magento_Theme/js/theme'
     ]
+};
+
+require.config(config);
+})();
+(function() {
+var config = {
+    deps: ['BaseAutoSound_Catalog/js/owl.carousel']
 };
 
 require.config(config);

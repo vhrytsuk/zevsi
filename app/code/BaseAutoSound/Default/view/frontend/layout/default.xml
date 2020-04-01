@@ -34,12 +34,58 @@
                 </arguments>
             </block>
         </referenceBlock>
+        <referenceContainer name="footer">
+            <container name="footer.navigation.content" htmlTag="div" htmlClass="navigation-footer-content" before="-">
+                <container name="footer.list.navigation" htmlTag="div" htmlClass="navigation-footer-list" before="-">
+                    <block class="Magento\Cms\Block\Block" name="catalog.list.footer">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">catalog_footer</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Cms\Block\Block" name="company.list.footer">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">company_footer</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Cms\Block\Block" name="buyers.list.footer">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">to_buyers_footer</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Cms\Block\Block" name="information.list.footer">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">information_footer</argument>
+                        </arguments>
+                    </block>
+                </container>
+                <container name="footer.block.copyright" htmlTag="div" htmlClass="copyright-block-content">
+                    <block class="Magento\Cms\Block\Block" name="developed.block">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">developed</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+            <container name="footer.social.content" htmlTag="div" htmlClass="social-footer-content" after="-">
+                <block class="Magento\Cms\Block\Block" name="phone.number.block">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">phone_number_footer</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Cms\Block\Block" name="social.networks.block">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">social_networks</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
         <move element="my-account-link" destination="actions.list.menu" before="-"/>
         <move element="wish-list-link" destination="actions.list.menu" after="my-account-link"/>
         <move element="catalog.compare.link" destination="actions.list.menu" after="wish-list-link"/>
         <move element="minicart" destination="actions.list.menu" after="-"/>
         <move element="store_language" destination="header.panel" after="menu.list.header.top"/>
         <move element="city.location.header.top" destination="header.panel" after="store_language"/>
+        <move element="copyright" destination="footer.block.copyright" before="-"/>
     </body>
 </page>
 

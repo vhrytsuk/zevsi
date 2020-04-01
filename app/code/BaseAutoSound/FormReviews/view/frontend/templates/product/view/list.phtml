@@ -35,10 +35,14 @@ $blockTitleParent = false;
                             <time class="review-details-value" itemprop="datePublished" datetime="<?= $block->escapeHtmlAttr($block->formatDate($_review->getCreatedAt(), $format)) ?>"><?= $block->escapeHtml($block->formatDate($_review->getCreatedAt(), $format)) ?></time>
                         </p>
                     </div>
-                    <div class="review-content" itemprop="description">
+                    <div class="review-content readmore-article" itemprop="description">
                         <?= /* @noEscape */ nl2br($block->escapeHtml($_review->getDetail())) ?>
                     </div>
                         <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('advantages_disadvantages')->toHtml(); ?>
+                    <div class="review-content-bottom">
+                        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('reply_coment_block')->toHtml(); ?>
+                        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('vote_reviews')->toHtml(); ?>
+                    </div>
                </div>
                 <?php if (count($_review->getRatingVotes())) : ?>
                     <div class="review-ratings">
@@ -68,3 +72,11 @@ $blockTitleParent = false;
     </div>
 </div>
 <?php endif;?>
+
+<script type="text/x-magento-init">
+                 {
+                    "*": {
+                      "BaseAutoSound_Catalog/js/readmore-options": {}
+                        }
+                  }
+</script>

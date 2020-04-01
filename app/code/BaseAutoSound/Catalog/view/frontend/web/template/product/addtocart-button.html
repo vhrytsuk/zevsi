@@ -1,0 +1,18 @@
+<if args="isAllowed()">
+    <if args="isSalable($row())">
+        <button class="action tocart primary"
+                attr="'data-mage-init': getDataMageInit($row()),
+                      'data-post': getDataPost($row()),
+                       title: getLabel()"
+                type="button">
+            <span text="getLabel()"/>
+        </button>
+    </if>
+
+    <ifnot args="isSalable($row())">
+        <div class="stock unavailable">
+           <span class="availability"><text args="$t('Availability')"/></span>
+            <span translate="'Out of stock'"/>
+        </div>
+    </ifnot>
+</if>
