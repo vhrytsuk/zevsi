@@ -222,6 +222,7 @@ return [
         'BaseAutoSound_Default' => 1,
         'BaseAutoSound_Extension' => 1,
         'BaseAutoSound_FormReviews' => 1,
+        'BaseAutoSound_Sample' => 1,
         'BaseAutoSound_Wishlist' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Klarna_Core' => 1,

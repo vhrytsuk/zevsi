@@ -1,1 +1,0 @@
-/var/www/html/smileOssWork/lib/web/jquery/fileUploader/jquery.iframe-transport.js

@@ -1,2 +1,2 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1585743493;s:6:"expire";i:1585750693;s:4:"tags";s:49:"2c4_STORE,2c4_CONFIG,2c4_COLLECTION_DATA,2c4_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1585925975;s:6:"expire";i:1585933175;s:4:"tags";s:49:"2c4_STORE,2c4_CONFIG,2c4_COLLECTION_DATA,2c4_MAGE";}
 [{"store_id":"2","code":"En","website_id":"1","group_id":"1","name":"English","sort_order":"0","is_active":"0"},{"store_id":"1","code":"default","website_id":"1","group_id":"1","name":"\u0420\u0443\u0441","sort_order":"0","is_active":"1"},{"store_id":"3","code":"Ua","website_id":"1","group_id":"1","name":"\u0423\u043a\u0440","sort_order":"0","is_active":"1"}]

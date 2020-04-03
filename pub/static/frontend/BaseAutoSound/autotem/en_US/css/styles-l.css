@@ -152,7 +152,7 @@ span.klarna-payments-method-cell > img {
   margin-bottom: 25px;
 }
 .delivery-locations-form .delivery-locations-list {
-  border: 1px solid #777777;
+  border: 1px solid #eff0f3;
   max-height: 500px;
   overflow: auto;
 }
@@ -260,7 +260,7 @@ span.klarna-payments-method-cell > img {
 }
 @media all and (min-width: 768px), print {
   h1 {
-    font-size: 34px;
+    font-size: 32px;
     margin-bottom: 36px;
   }
   .navigation,
@@ -458,7 +458,7 @@ span.klarna-payments-method-cell > img {
   }
   .navigation .level0 > .level-top:hover,
   .navigation .level0 > .level-top.ui-state-focus {
-    color: #333;
+    color: #fb2539;
     text-decoration: none;
   }
   .navigation .level0.active > .level-top,
@@ -466,7 +466,7 @@ span.klarna-payments-method-cell > img {
     border-color: #ff5501;
     border-style: solid;
     border-width: 0 0 3px;
-    color: #333;
+    color: #fb2539;
     text-decoration: none;
     display: inline-block;
   }
@@ -571,7 +571,7 @@ span.klarna-payments-method-cell > img {
   .navigation .level0 .submenu a:hover,
   .navigation .level0 .submenu a.ui-state-focus {
     background: #e8e8e8;
-    color: #333;
+    color: #fb2539;
     text-decoration: none;
   }
   .navigation .level0 .submenu .active > a {
@@ -2251,8 +2251,8 @@ span.klarna-payments-method-cell > img {
     margin: 0;
   }
   .page-header .panel.header {
-    padding-top: 11px;
-    padding-bottom: 14px;
+    padding-top: 0;
+    padding-bottom: 0;
     position: relative;
   }
   .page-header .panel.header > .header.links > li {

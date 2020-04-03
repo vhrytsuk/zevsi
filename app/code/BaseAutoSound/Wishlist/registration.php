@@ -1,6 +1,6 @@
 <?php
 /*
- *BaseAutoSound Default module registration.
+ *BaseAutoSound Default module .
  *
  *@author Hrytsuk  vgritsukm@gmail.com
  *@copyright 2020 zevsi

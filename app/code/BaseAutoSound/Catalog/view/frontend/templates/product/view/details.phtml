@@ -48,8 +48,11 @@
                     $label = $block->getChildData($alias, 'title');
                     ?>
                 <?php if ($alias != 'reviews'): ?>
-                    <div class="data item content <?= $block->escapeHtmlAttr($alias); ?> readmore-article"
-                             aria-labelledby="tab-label-<?= $block->escapeHtmlAttr($alias); ?>-title"
+                    <div data-mage-init='{"valintins" :
+                    {"maxHeight": <?= $alias === 'product.attributes' ? 350 : 100; ?>,
+                    "text":"<?= $alias === 'product.attributes' ? __("Показать все характеристики") : __("Подробнее"); ?>"}}'
+                         class="data item content <?= $block->escapeHtmlAttr($alias); ?> readmore-article"
+                         aria-labelledby="tab-label-<?= $block->escapeHtmlAttr($alias); ?>-title"
                              id="<?= $block->escapeHtmlAttr($alias); ?>" data-role="content">
                             <h3><?= $label, __("Goods");?></h3>
                             <?= /* @noEscape */
@@ -67,6 +70,7 @@
                     }
                     $alias = $layout->getElementAlias($name);
                     $label = $block->getChildData($alias, 'title');
+                    __($alias);
                     ?>
                     <?php if ($alias === 'reviews'): ?>
                         <div class="top-content-reviews">
@@ -77,8 +81,8 @@
                                    data-toggle="trigger"
                                    href="#<?= $block->escapeUrl($alias); ?>"
                                    id="tab-label-<?= $block->escapeHtmlAttr($alias); ?>-title">
-                                    <?= /* @noEscape */
-                                    $label ?>
+                                    <?= /* @noEscape */ $label ?>
+
                                 </a>
                             </div>
                             <button class="review-button action-review" type="button"  data-trigger="trigger"><?= __("Add review"); ?></button>

@@ -78,10 +78,11 @@ dfn {
 }
 h1 {
   color: #333333;
+  font-family: 'ProximaNova-Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   line-height: 12.49px;
   font-size: 25px;
-  margin-top: 20px;
+  margin-top: 19px;
   margin-bottom: 18px;
 }
 h2 {

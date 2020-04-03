@@ -198,6 +198,17 @@ $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInter
                                 <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product photo product-item-photo">
                                     <?= $block->getImage($_item, $image)->toHtml() ?>
                                 </a>
+                                <?php
+                                $specialprice = $_item->getSpecialPrice();
+                                $price = $_item->getPrice();
+                                if($price){
+                                    $sale = round((($price-$specialprice)/$price)*100);
+                                }
+                                ?>
+
+                                <?php if ($sale != 100 && $sale != 0): ?>
+                                    <span class="interest"><?= __('Sale'); ?><span><?= -$sale. '%' ?></span></span>
+                                <?endif;?>
                                 <div class="product details product-item-details">
                                     <div class="product-top-info">
                                         <div class="sku-product">

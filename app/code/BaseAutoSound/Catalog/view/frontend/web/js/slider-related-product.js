@@ -7,7 +7,7 @@ define([
 
         return function (config, element) {
                 $(element).owlCarousel({
-                    margin: 20,
+                    margin: 22,
                     nav: true,
                     items: 5,
                     responsive: {

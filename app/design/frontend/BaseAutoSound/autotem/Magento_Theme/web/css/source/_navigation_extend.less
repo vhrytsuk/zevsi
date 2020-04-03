@@ -20,23 +20,22 @@
                     top: 100%;
                     left: 0;
                     width: 100%;
+                    box-shadow: @autotem-block-shadow;
                     display: none;
                 }
 
                 .all-categories-block {
-                    .lib-icon-image-position(
-                        @_icon-image-position: after
-                    );
                     .lib-icon-image(
                         @_icon-image: '@{baseDir}/images/icons/list2.svg',
                         @_icon-image-width: 20px,
                         @_icon-image-height: 16px
                     );
                     .flex-element-center();
+                    font-weight: @font-weight__regular;
                     flex-direction: row-reverse;
                     min-width: 234px;
                     height: 54px;
-                    padding: 0 20px;
+                    padding: 0 20px 0 20px;
                     box-sizing: border-box;
                     position: relative;
                     justify-content: space-between;

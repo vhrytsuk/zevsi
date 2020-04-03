@@ -1,6 +1,16 @@
+//  Sections variables
+//  _____________________________________________
+
+@footer-background-color: @autotem-color-abbey;
+@footer-right-background-color: @autotem-color-mako;
+@phone-number-footer-font-size: @font-size-autotem-average + 3;
+
+//  Common
+//  _____________________________________________
+
 & when (@media-common = true) {
     .page-footer{
-        background-color: @autotem-color-abbey;
+        background-color: @footer-background-color;
         overflow: hidden;
     }
     .footer.content {
@@ -14,28 +24,30 @@
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        padding: 46px 46px 0 0;
+        padding: 43px 46px 0 0;
+        ul.list-footer-block{
+            & > li{
+                a{
+                    font-size: @font-size-autotem-smaller-large;
+                    color: @autotem-color-oslo-gray;
+                    line-height: 26px;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
     }
     .navigation-footer-list{
         display: flex;
         justify-content: space-between;
-        padding-bottom: 37px;
+        padding-bottom: 36px;
         & > div{
             h3{
                 color: @autotem-color-silver-sand;
                 font-size: @font-size-autotem-medium-large;
                 line-height: 22px;
-                margin-bottom: 5px;
-            }
-        }
-        .list-footer-block{
-            li{
-                margin-bottom: 2px;
-                a{
-                    font-size: @font-size-autotem-smaller-large;
-                    color: @autotem-color-oslo-gray;
-                    line-height: 26px;
-                }
+                margin-bottom: 9px;
             }
         }
         .catalog_footer{
@@ -47,16 +59,21 @@
                 max-height: 190px;
                 li{
                     &:nth-child(1n + 8){
-                        padding-left: 36px;
+                        padding-left: 38px;
                     }
                 }
+            }
+            &::after{
+                    content: "";
+                    display: table;
+                    clear: both;
             }
         }
     }
     .social-footer-content{
         width: 16%;
-        padding: 43px 0 0 70px;
-        background-color: @autotem-color-mako;
+        padding: 41px 0 0 70px;
+        background-color: @footer-right-background-color;
         position: relative;
         &::after{
             content: "";
@@ -64,8 +81,8 @@
             top: 0;
             bottom: 0;
             left: 100%;
-            background-color: @autotem-color-mako;
-            width: 9999999px;
+            background-color: @footer-right-background-color;
+            width: 2999px;
         }
         .social-networks{
             .title-social{
@@ -87,11 +104,12 @@
         flex-direction: column;
         margin-bottom: 49px;
         .phone-number{
-            font-size: @font-size-autotem-average + 3;
+            font-size: @phone-number-footer-font-size;
             color: @autotem-color-silver-sand;
             line-height: 28px;
             font-weight: @font-weight__bold;
             margin-bottom: 11px;
+            white-space: nowrap;
         }
         .phone-information{
             font-size: @font-size-autotem-small;
@@ -99,12 +117,13 @@
         }
     }
     .copyright-block-content{
-        border-top: 1px solid @autotem-color-abbey;
+        border-top: 1px solid @autotem-color-abbey-gray;
         display: flex;
         justify-content: space-between;
-        padding: 24px 0 26px;
+        padding: 24px 0 27px;
         .copyright{
             margin-top: 0;
+            padding-left: 3px;
             & > span{
                 font-size: @font-size-autotem-smaller-large;
                 color: @autotem-color-oslo-gray;
@@ -116,6 +135,7 @@
             span{
                 font-size: @font-size-autotem-smaller-large;
                 color:  @autotem-color-oslo-gray;
+                padding-right: 5px;
             }
         }
     }

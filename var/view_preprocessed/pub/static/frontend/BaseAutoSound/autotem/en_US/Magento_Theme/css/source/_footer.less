@@ -1,9 +1,22 @@
+//  Sections variables
+//  _____________________________________________
+
+@footer-background-color: @autotem-color-abbey;
+@footer-right-background-color: @autotem-color-mako;
+@phone-number-footer-font-size: @font-size-autotem-average + 3;
+
+//  Common
+//  _____________________________________________
+
 & when (@media-common = true) {
     .page-footer{
-        background-color: @autotem-color-abbey;
+        background-color: @footer-background-color;
+        overflow: hidden;
     }
     .footer.content {
         margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
         display: flex;
         justify-content: space-between;
     }
@@ -11,50 +24,119 @@
         display: flex;
         flex-direction: column;
         flex-grow: 1;
+        padding: 43px 46px 0 0;
+        ul.list-footer-block{
+            & > li{
+                a{
+                    font-size: @font-size-autotem-smaller-large;
+                    color: @autotem-color-oslo-gray;
+                    line-height: 26px;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
     }
     .navigation-footer-list{
         display: flex;
         justify-content: space-between;
+        padding-bottom: 36px;
         & > div{
             h3{
-                color: @autotem-color-white;
+                color: @autotem-color-silver-sand;
                 font-size: @font-size-autotem-medium-large;
                 line-height: 22px;
-                margin-bottom: 5px;
+                margin-bottom: 9px;
             }
         }
-        .list-footer-block{
-            li{
-                a{
-                    font-size: @font-size-autotem-smaller-large;
-                    color: @autotem-color-white;
-                    line-height: 26px;
+        .catalog_footer{
+            width: 32%;
+            .list-footer-block{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                max-height: 190px;
+                li{
+                    &:nth-child(1n + 8){
+                        padding-left: 38px;
+                    }
+                }
+            }
+            &::after{
+                    content: "";
+                    display: table;
+                    clear: both;
+            }
+        }
+    }
+    .social-footer-content{
+        width: 16%;
+        padding: 41px 0 0 70px;
+        background-color: @footer-right-background-color;
+        position: relative;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 100%;
+            background-color: @footer-right-background-color;
+            width: 2999px;
+        }
+        .social-networks{
+            .title-social{
+                font-size: @font-size-autotem-smaller-large;
+                color: @autotem-color-oslo-gray;
+            }
+            .social-list{
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 17px;
+                li{
+                    margin: 0 21px 19px 0;
                 }
             }
         }
-        .social.footer.content{
-            width: 22%;
-        }
     }
     .phone-number-block{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 49px;
         .phone-number{
-            font-size: @font-size-autotem-average + 3;
-            color: @autotem-color-white;
+            font-size: @phone-number-footer-font-size;
+            color: @autotem-color-silver-sand;
             line-height: 28px;
             font-weight: @font-weight__bold;
+            margin-bottom: 11px;
+            white-space: nowrap;
         }
         .phone-information{
             font-size: @font-size-autotem-small;
+            color: @autotem-color-oslo-gray;
         }
     }
-    .social-networks{
-        .title-social{
-            font-size: @font-size-autotem-smaller-large;
-            color: @autotem-color-white;
+    .copyright-block-content{
+        border-top: 1px solid @autotem-color-abbey-gray;
+        display: flex;
+        justify-content: space-between;
+        padding: 24px 0 27px;
+        .copyright{
+            margin-top: 0;
+            padding-left: 3px;
+            & > span{
+                font-size: @font-size-autotem-smaller-large;
+                color: @autotem-color-oslo-gray;
+            }
         }
-        .social-list{
+        .developed-block{
             display: flex;
-            flex-wrap: wrap;
+            align-items: flex-start;
+            span{
+                font-size: @font-size-autotem-smaller-large;
+                color:  @autotem-color-oslo-gray;
+                padding-right: 5px;
+            }
         }
     }
 }

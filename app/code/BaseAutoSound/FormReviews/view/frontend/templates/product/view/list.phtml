@@ -16,7 +16,9 @@ $blockTitleParent = false;
     <div class="block-title" style="display: <?= $blockTitleParent ? 'block' : 'none'; ?>">
         <strong><?= $block->escapeHtml(__('Customer Reviews')) ?></strong>
     </div>
-    <div class="block-content">
+    <div class="block-content"  data-mage-init='{"valintins" :
+             {"maxHeight": 500,
+             "text":"<?=  __("Показать все отзывы"); ?>"}}'>
         <div class="toolbar review-toolbar">
             <?= $block->getChildHtml('toolbar') ?>
         </div>
@@ -35,7 +37,9 @@ $blockTitleParent = false;
                             <time class="review-details-value" itemprop="datePublished" datetime="<?= $block->escapeHtmlAttr($block->formatDate($_review->getCreatedAt(), $format)) ?>"><?= $block->escapeHtml($block->formatDate($_review->getCreatedAt(), $format)) ?></time>
                         </p>
                     </div>
-                    <div class="review-content readmore-article" itemprop="description">
+                    <div class="review-content" itemprop="description" data-mage-init='{"valintins" :
+                            {"maxHeight": 70,
+                            "text":"<?=  __("Показать все отзывы"); ?>"}}'>
                         <?= /* @noEscape */ nl2br($block->escapeHtml($_review->getDetail())) ?>
                     </div>
                         <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('advantages_disadvantages')->toHtml(); ?>

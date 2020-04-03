@@ -1,3 +1,13 @@
+//  Sections variables
+//  _____________________________________________
+
+@header-top-background-color: @autotem-color-athens-gray;
+
+
+//  Common
+//  _____________________________________________
+
+
 & when (@media-common = true) {
     .page-header {
         .panel.header {
@@ -8,7 +18,8 @@
 
             & > .header.links {
                 margin-left: 5%;
-
+                display: flex;
+                align-items: center;
                 .authorization-link {
                     margin-left: 0;
 
@@ -38,17 +49,18 @@
 
             .switcher {
                 margin-right: 0;
+                margin-left: 9px;
 
                 .options {
                     display: flex;
-
+                    margin-left: 6px;
                     .action.toggle {
                         margin-right: 13px;
-
+                        padding: 11px 0 14px;
                         &::after {
                             content: "";
                             position: absolute;
-                            bottom: -16px;
+                            bottom: -1px;
                             width: 23px;
                             height: 2px;
                             left: 0;
@@ -58,6 +70,7 @@
 
                     .selected-language {
                         margin-left: 13px;
+                        padding: 11px 0 14px;
                     }
                 }
             }
@@ -79,6 +92,10 @@
             }
             .block-search{
                 width: 27%;
+                margin-top: 1px;
+                .block.block-content{
+                    padding-right: 6px;
+                }
                 .action.search{
                     opacity: 1;
                     padding-top: 11px;
@@ -113,13 +130,14 @@
                 font-weight: @font-weight__bold;
                 line-height: 7.43px;
                 color: @autotem-color-mine-shaft;
+                white-space: nowrap;
             }
 
             .list-rooms {
                 position: absolute;
                 display: none;
                 padding-left: 0;
-                width: 100%;
+                min-width: 160px;
                 background-color: @autotem-color-athens-gray;
                 list-style-type: none;
                 z-index: 10;
@@ -143,16 +161,20 @@
                 }
             }
         }
-
+        .phone-callback-block{
+            display: flex;
+            margin: 0 5px 5px 0;
+        }
         .phone-callback {
             color: @autotem-color-mine-shaft;
-            padding: 7px 23px 8px 21px;
+            padding: 12px 23px 13px 21px;
             border: 2px solid @autotem-color-sunglow;
             line-height: 7.43px;
+            white-space: nowrap;
         }
 
         .panel.wrapper {
-            background-color: @autotem-color-athens-gray;
+            background-color: @header-top-background-color;
 
             .panel.header {
                 &::after,
@@ -167,6 +189,7 @@
         display: flex;
         list-style-type: none;
         padding-left: 0;
+        margin-bottom: 3px;
         & > li {
             margin: 0 10px;
             a {
@@ -183,9 +206,15 @@
                     .lib-icon-image(
                         @_icon-image: '@{baseDir}/images/icons/garage.svg',
                         @_icon-image-width: 26px,
-                        @_icon-image-height: 25px
+                        @_icon-image-height: 25px,
+                        @_icon-image-margin: 0 0 6px
                     );
                     display: flex;
+                    &:hover{
+                        &::before{
+                            background-image: url("@{baseDir}/images/icons/garage-hover.svg");
+                        }
+                    }
                 }
             }
         }
@@ -199,6 +228,11 @@
                         @_icon-image-height: 21px
                     );
                     display: flex;
+                    &:hover{
+                        &::before{
+                            background-image: url("@{baseDir}/images/icons/wishlist-hover.svg");
+                        }
+                    }
                 }
             }
 
@@ -207,24 +241,37 @@
                     .lib-icon-image(
                         @_icon-image: '@{baseDir}/images/icons/compare.svg',
                         @_icon-image-width: 32px,
-                        @_icon-image-height: 23px
+                        @_icon-image-height: 23px,
+                        @_icon-image-margin: 0 0 8px
                     );
                     display: flex;
+                    &:hover{
+                        &::before{
+                            background-image: url("@{baseDir}/images/icons/compare-hover.svg");
+                        }
+                    }
                 }
             }
         }
 
         .minicart-wrapper {
-            margin-left: 5px;
+            margin-left: 7px;
+            margin-right: 5px;
             .action.showcart {
+                margin-top: -3px;
                 .lib-icon-image(
                     @_icon-image: '@{baseDir}/images/icons/minicart.svg',
                     @_icon-image-width: 28px,
                     @_icon-image-height: 27px,
-                    @_icon-image-margin: 0 0 13px,
+                    @_icon-image-margin: 0 0 9px,
                     @_icon-image-text-hide:true
                 );
                 display: flex;
+                &:hover{
+                    &::before{
+                        background-image: url("@{baseDir}/images/icons/minicart-hover.svg");
+                    }
+                }
 
                 & > span {
                     &.text {
@@ -237,16 +284,17 @@
             }
         }
         .counter.qty{
-            .flex-element-center();
             position: absolute;
             right: 11px;
+            text-align: center;
+            line-height: 16px;
             font-size: @font-size-ver-small;
             color: @autotem-color-white;
             background: @autotem-color-torch-red;
             font-weight: @font-weight__bold;
             width: 16px;
             height: 16px;
-            border-radius: 50%
+            border-radius: 50%;
         }
     }
 
@@ -265,23 +313,18 @@
             a {
                 line-height: 7.43px;
                 padding: 0 17px;
+                height: 100%;
+                display: flex;
+                align-items: center;
             }
         }
     }
 
     .selected-city {
-        margin-left: 4px;
-
-        &::after,
-        &::before {
-            content: "";
-            width: 1px;
-            top: 0;
-            bottom: 0;
-            background-color: @autotem-color-emperor;
-            position: absolute;
-            opacity: 0.2;
-        }
+        padding: 11px 0 14px;
+        cursor: pointer;
+        border-right: 1px solid @autotem-color-silver-sand;
+        border-left: 1px solid @autotem-color-silver-sand;
 
         &:hover {
             .favorites-city {
@@ -298,14 +341,14 @@
         .favorites-city {
             position: relative;
             cursor: pointer;
-            padding: 0 6px 0 17px;
+            padding: 0 12px 0 17px;
             .lib-icon-font(
                     @icon-down,
                     @font-icon-blanc-theme,
                     @font-size-autotem-average,
-                @_icon-font-line-height:12px,
-                @_icon-font-color: @autotem-color-mine-shaft,
-                @_icon-font-position: after
+                    @_icon-font-line-height:12px,
+                    @_icon-font-color: @autotem-color-mine-shaft,
+                    @_icon-font-position: after
             );
 
             &::after {
@@ -317,9 +360,11 @@
 
         .list_city {
             position: absolute;
+            top: 100%;
             z-index: 10;
             background-color: @autotem-color-athens-gray;
             padding: 10px;
+            box-shadow: @autotem-block-shadow;
 
             & > li {
                 padding: 5px 10px;
@@ -331,7 +376,8 @@
         display: flex;
 
         .your-city {
-            margin-right: 16px;
+            margin-right: 14px;
+            padding: 11px 0 14px;
         }
 
         .list_city {
@@ -344,8 +390,8 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .page-header {
         .panel.header {
-            padding-top: 11px;
-            padding-bottom: 14px;
+            padding-top: 0;
+            padding-bottom: 0;
             position: relative;
 
             & > .header.links {
