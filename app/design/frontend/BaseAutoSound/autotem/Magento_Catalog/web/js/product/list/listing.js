@@ -8,6 +8,8 @@ define([
     'underscore',
     'Magento_Ui/js/grid/listing',
     'jquery',
+    'BaseAutoSound_Catalog/js/owl.carousel'
+
 ], function (ko, _, Listing, $) {
     'use strict';
 

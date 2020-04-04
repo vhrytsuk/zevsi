@@ -6,6 +6,62 @@
  */
 
 var config = {
+    map: {
+        '*': {
+            'rowBuilder':             'Magento_Theme/js/row-builder',
+            'toggleAdvanced':         'mage/toggle',
+            'translateInline':        'mage/translate-inline',
+            'sticky':                 'mage/sticky',
+            'tabs':                   'mage/tabs',
+            'zoom':                   'mage/zoom',
+            'collapsible':            'mage/collapsible',
+            'dropdownDialog':         'mage/dropdown',
+            'dropdown':               'mage/dropdowns',
+            'accordion':              'mage/accordion',
+            'loader':                 'mage/loader',
+            'tooltip':                'mage/tooltip',
+            'deletableItem':          'mage/deletable-item',
+            'itemTable':              'mage/item-table',
+            'fieldsetControls':       'mage/fieldset-controls',
+            'fieldsetResetControl':   'mage/fieldset-controls',
+            'redirectUrl':            'mage/redirect-url',
+            'loaderAjax':             'mage/loader',
+            'menu':                   'mage/menu',
+            'popupWindow':            'mage/popup-window',
+            'validation':             'mage/validation/validation',
+            'welcome':                'Magento_Theme/js/view/welcome',
+            'breadcrumbs':            'Magento_Theme/js/view/breadcrumbs',
+            'criticalCssLoader':      'Magento_Theme/js/view/critical-css-loader',
+            'jquery/ui':              'jquery/compat'
+        }
+    },
+    deps: [
+        'jquery/jquery.mobile.custom',
+        'mage/common',
+        'mage/dataPost',
+        'mage/bootstrap'
+    ],
+    config: {
+        mixins: {
+            'Magento_Theme/js/view/breadcrumbs': {
+                'Magento_Theme/js/view/add-home-breadcrumb': true
+            },
+            'jquery/jquery-ui': {
+                'jquery/patches/jquery-ui': true
+            }
+        }
+    }
+};
+
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+var config = {
     'waitSeconds': 0,
     'map': {
         '*': {
@@ -73,62 +129,6 @@ require(['jquery'], function ($) {
 
     $.noConflict();
 });
-
-require.config(config);
-})();
-(function() {
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-var config = {
-    map: {
-        '*': {
-            'rowBuilder':             'Magento_Theme/js/row-builder',
-            'toggleAdvanced':         'mage/toggle',
-            'translateInline':        'mage/translate-inline',
-            'sticky':                 'mage/sticky',
-            'tabs':                   'mage/tabs',
-            'zoom':                   'mage/zoom',
-            'collapsible':            'mage/collapsible',
-            'dropdownDialog':         'mage/dropdown',
-            'dropdown':               'mage/dropdowns',
-            'accordion':              'mage/accordion',
-            'loader':                 'mage/loader',
-            'tooltip':                'mage/tooltip',
-            'deletableItem':          'mage/deletable-item',
-            'itemTable':              'mage/item-table',
-            'fieldsetControls':       'mage/fieldset-controls',
-            'fieldsetResetControl':   'mage/fieldset-controls',
-            'redirectUrl':            'mage/redirect-url',
-            'loaderAjax':             'mage/loader',
-            'menu':                   'mage/menu',
-            'popupWindow':            'mage/popup-window',
-            'validation':             'mage/validation/validation',
-            'welcome':                'Magento_Theme/js/view/welcome',
-            'breadcrumbs':            'Magento_Theme/js/view/breadcrumbs',
-            'criticalCssLoader':      'Magento_Theme/js/view/critical-css-loader',
-            'jquery/ui':              'jquery/compat'
-        }
-    },
-    deps: [
-        'jquery/jquery.mobile.custom',
-        'mage/common',
-        'mage/dataPost',
-        'mage/bootstrap'
-    ],
-    config: {
-        mixins: {
-            'Magento_Theme/js/view/breadcrumbs': {
-                'Magento_Theme/js/view/add-home-breadcrumb': true
-            },
-            'jquery/jquery-ui': {
-                'jquery/patches/jquery-ui': true
-            }
-        }
-    }
-};
 
 require.config(config);
 })();
@@ -894,20 +894,42 @@ require.config(config);
 })();
 (function() {
 var config = {
-    deps: ['BaseAutoSound_Catalog/js/owl.carousel',
-        'BaseAutoSound_Catalog/js/currency'],
+    // deps: ['BaseAutoSound_Catalog/js/owl.carousel'],
+};
+
+require.config(config);
+})();
+(function() {
+var config = {
+    deps: ['BaseAutoSound_Currencies/js/currency'],
+};
+
+require.config(config);
+})();
+(function() {
+var config = {
     map: {
         "*": {
-            'Magento_Catalog/template/product/name.html':
-                'BaseAutoSound_Catalog/template/product/name.html',
-            'Magento_Catalog/template/product/list/listing.html':
-                'BaseAutoSound_Catalog/template/product/list/listing.html',
-            'Magento_Catalog/template/product/addtocart-button.html':
-                'BaseAutoSound_Catalog/template/product/addtocart-button.html',
-            valintins: 'BaseAutoSound_Catalog/js/valintins',
+            readmore: 'BaseAutoSound_Readmore/js/readmore-options',
         }
     },
 
+};
+
+require.config(config);
+})();
+(function() {
+var config = {
+    map: {
+        "*": {
+            'Magento_Catalog/template/product/name.html':
+                'BaseAutoSound_ViewedProducts/template/product/name.html',
+            'Magento_Catalog/template/product/list/listing.html':
+                'BaseAutoSound_ViewedProducts/template/product/list/listing.html',
+            'Magento_Catalog/template/product/addtocart-button.html':
+                'BaseAutoSound_ViewedProducts/template/product/addtocart-button.html',
+        }
+    },
 };
 
 require.config(config);
@@ -1002,7 +1024,7 @@ require.config(config);
 })();
 (function() {
 var config = {
-    deps: ['BaseAutoSound_Catalog/js/owl.carousel']
+    // deps: ['BaseAutoSound_Catalog/js/owl.carousel']
 };
 
 require.config(config);

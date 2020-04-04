@@ -1,7 +1,11 @@
+//  Common
+//  _____________________________________________
+
 & when (@media-common = true) {
-    .sections.nav-sections{
+    .sections.nav-sections {
         margin-bottom: 16px;
     }
+
     .section-items {
         .nav-sections-item-content {
             & > .navigation {
@@ -14,13 +18,9 @@
                 }
 
                 .menu-ul {
+                    .dropdown-block();
                     flex-direction: column;
-                    position: absolute;
-                    background-color: @autotem-color-athens-gray;
-                    top: 100%;
-                    left: 0;
                     width: 100%;
-                    box-shadow: @autotem-block-shadow;
                     display: none;
                 }
 
@@ -30,15 +30,16 @@
                         @_icon-image-width: 20px,
                         @_icon-image-height: 16px
                     );
-                    .flex-element-center();
+                    .flex-element(
+                        @justify:space-between,
+                        @direction: row-reverse
+                    );
                     font-weight: @font-weight__regular;
-                    flex-direction: row-reverse;
                     min-width: 234px;
                     height: 54px;
-                    padding: 0 20px 0 20px;
+                    padding: 0 20px;
                     box-sizing: border-box;
                     position: relative;
-                    justify-content: space-between;
                     cursor: pointer;
                     background-color: @autotem-color-torch-red;
 
@@ -72,7 +73,6 @@
                         @_icon-image-height: 19px,
                         @_icon-image-margin:0 9px 0 0
                     );
-                    display: flex;
                 }
             }
 
@@ -84,7 +84,6 @@
                         @_icon-image-height: 17px,
                         @_icon-image-margin:0 10px 0 0
                     );
-                    display: flex;
                 }
             }
 
@@ -96,7 +95,6 @@
                         @_icon-image-height: 21px,
                         @_icon-image-margin:0 11px 0 0
                     );
-                    display: flex;
                 }
             }
 
@@ -108,12 +106,20 @@
                         @_icon-image-height: 15px,
                         @_icon-image-margin:0 11px 0 0
                     );
+                }
+            }
+
+            &.action,
+            &.compare-tests,
+            &.how-to-chose,
+            &.news {
+                & > a {
                     display: flex;
                 }
             }
 
             & > a {
-                .flex-element-center();
+                .flex-element();
                 text-transform: uppercase;
                 color: @autotem-color-white;
                 height: 100%;

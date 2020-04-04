@@ -48,9 +48,10 @@
                     $label = $block->getChildData($alias, 'title');
                     ?>
                 <?php if ($alias != 'reviews'): ?>
-                    <div data-mage-init='{"valintins" :
+                    <div data-mage-init='{"readmore" :
                     {"maxHeight": <?= $alias === 'product.attributes' ? 350 : 100; ?>,
-                    "text":"<?= $alias === 'product.attributes' ? __("Показать все характеристики") : __("Подробнее"); ?>"}}'
+                    "textShow":"<?= $alias === 'product.attributes' ? __("Show all specifications") : __("More details"); ?> ",
+                    "textHide": "<?= $alias === 'product.attributes' ? __("Hide specifications") : __("Hide"); ?> "}}'
                          class="data item content <?= $block->escapeHtmlAttr($alias); ?> readmore-article"
                          aria-labelledby="tab-label-<?= $block->escapeHtmlAttr($alias); ?>-title"
                              id="<?= $block->escapeHtmlAttr($alias); ?>" data-role="content">
@@ -81,7 +82,7 @@
                                    data-toggle="trigger"
                                    href="#<?= $block->escapeUrl($alias); ?>"
                                    id="tab-label-<?= $block->escapeHtmlAttr($alias); ?>-title">
-                                    <?= /* @noEscape */ $label ?>
+                                    <span class="rewiews-title"><?= __("Reviews")?></span><span class="rewiews-title-hide"><?= /* @noEscape */ $label ?></span>
 
                                 </a>
                             </div>
@@ -99,11 +100,3 @@
         </div>
     </div>
 <?php endif; ?>
-
-<script type="text/x-magento-init">
-                 {
-                    "*": {
-                      "BaseAutoSound_Catalog/js/readmore-options": {}
-                        }
-                  }
-</script>

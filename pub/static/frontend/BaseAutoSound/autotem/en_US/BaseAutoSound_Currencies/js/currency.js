@@ -1,0 +1,1 @@
+/var/www/html/smileOssWork/app/code/BaseAutoSound/Currencies/view/frontend/web/js/currency.js

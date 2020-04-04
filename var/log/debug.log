@@ -1,2 +1,2 @@
-[2020-04-03 10:07:50] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"interception"}} []
-[2020-04-03 10:07:57] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"LOCKED_RECORD_INFO_SYSTEM_CONFIG"}} []
+[2020-04-04 15:08:05] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"interception"}} []
+[2020-04-04 15:08:14] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"LOCKED_RECORD_INFO_SYSTEM_CONFIG"}} []

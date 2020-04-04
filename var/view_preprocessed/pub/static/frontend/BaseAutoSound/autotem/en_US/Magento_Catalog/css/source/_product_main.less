@@ -88,7 +88,6 @@
         }
 
         .fotorama__nav__frame {
-            padding: 0 !important;
             box-sizing: border-box;
             margin: 0 9px 9px 0;
             border: 1px solid transparent;
@@ -98,11 +97,12 @@
             }
         }
         .video-thumb-icon{
+            &::after,
+            &::before{
+                .transform-position-center();
+            }
             &::after{
                 background: url("@{baseDir}/images/icons/video_player.png") no-repeat;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
                 z-index: 2;
                 margin: 0;
                 width: 23px;
@@ -110,15 +110,11 @@
             }
             &::before{
                 content: "";
-                position: absolute;
                 width: 31px;
                 height: 31px;
                 background-color: @autotem-color-white;
                 border-radius: 50%;
                 display: inline-block;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
                 z-index: 1;
             }
         }
@@ -213,6 +209,30 @@
       }
     }
 
+    a.show-text,
+    a.hide-text{
+        color: @autotem-color-mine-shaft;
+        text-decoration: underline;
+        .lib-icon-image(
+            @_icon-image: '@{baseDir}/images/icons/arrow2.svg',
+            @_icon-image-width: 11px,
+            @_icon-image-height: 8px,
+            @_icon-image-margin:0 6px 0 0
+        );
+        &:hover{
+            color: @autotem-color-torch-red;
+            text-decoration: none;
+        }
+    }
+    .hide-text{
+        &::before{
+            transform: rotate(180deg);
+        }
+    }
+    .show-text{
+        margin-top: 15px;
+    }
+
     .product-info-stock-sku {
         margin-right: 14px;
 
@@ -260,6 +280,8 @@
         .share_product,
         .action.towishlist{
             color: @autotem-color-mine-shaft;
+            font-size: @autotem-body-font-size;
+            font-weight: @font-weight__regular;
             &:hover{
                 color: @autotem-color-torch-red;
             }
@@ -290,23 +312,28 @@
                 @_icon-image-margin:0 14px 0 0
             );
             &:hover{
+                border: none;
+                background: none;
                &::before{
                    background-image: url("@{baseDir}/images/icons/comparison-hover.svg");
                }
             }
         }
         .action.towishlist{
-            padding: 10px 10px 5px 23px;
             .lib-icon-image(
                 @_icon-image: '@{baseDir}/images/icons/hear.svg',
                 @_icon-image-width: 25px,
                 @_icon-image-height: 18px,
                 @_icon-image-margin:0 5px 0 0
             );
+            padding: 10px 10px 5px 23px;
+            border: none;
             &:hover{
                     .lib-icon-image-position(
                         @_icon-image-position-x: -30px
                     );
+                    background: none;
+                    border: none;
             }
         }
     }
@@ -315,6 +342,11 @@
     .product-options-bottom .price-box .price-wrapper .price {
         font-size: @font-size-biggest;
         color: @autotem-color-dusty-gray;
+        font-family: @font-family_proximanova-bold;
+        .currency-product{
+            font-size: @font-size-autotem-average;
+            margin-left: 10px;
+        }
     }
 
     .product-info-main .product-addto-links,
@@ -466,13 +498,21 @@
                 }
                 .price{
                     font-size: @font-size-autotem-smaller-big;
+                    .currency-product{
+                        font-size: @product-alert-stock-font-size;
+                        margin-left: 4px;
+                    }
                 }
                 .old-price{
                     color: @autotem-color-coral;
-                    margin-bottom: 4px;
+                    margin: 0 0 4px 15px;
                     .price{
                         font-size: @font-size-autotem-smaller-large;
                         color: @autotem-color-coral;
+                        .currency-product{
+                            margin-left: 5px;
+                            font-size: @font-size-autotem-smaller-large;
+                        }
                     }
                 }
             }
@@ -494,7 +534,7 @@
         .block.widget.block-viewed-products-grid{
             .block-title{
                 & > strong{
-                    font-size: @font-size-autotem-large;
+                    font-size: @font-size-not-great;
                 }
             }
             .products-grid{
@@ -578,6 +618,7 @@
                     }
                 }
                 .product-item-info{
+                    .flex-element();
                     display: flex;
                     flex-direction: column;
                     align-items: center;
