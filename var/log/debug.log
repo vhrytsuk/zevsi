@@ -1,2 +1,2 @@
-[2020-04-05 13:21:04] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http://magento2work.local/motornoe-maslo-mobil-super-3000-x1-5w-40-4lw.html","invalidateInfo":{"identifier":"interception"}} []
-[2020-04-05 13:21:10] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http://magento2work.local/motornoe-maslo-mobil-super-3000-x1-5w-40-4lw.html","invalidateInfo":{"identifier":"LOCKED_RECORD_INFO_SYSTEM_CONFIG"}} []
+[2020-04-05 18:07:37] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http://magento2work.local/motornoe-maslo-mobil-super-3000-x1-5w-40-4lw.html","invalidateInfo":{"identifier":"interception"}} []
+[2020-04-05 18:07:43] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http://magento2work.local/motornoe-maslo-mobil-super-3000-x1-5w-40-4lw.html","invalidateInfo":{"identifier":"LOCKED_RECORD_INFO_SYSTEM_CONFIG"}} []
