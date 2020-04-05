@@ -5,8 +5,6 @@
         <css src="css/slider_carousel_css/owl.theme.default.min.css" />
     </head>
     <body>
-        <move element="product.info.sku" destination="page.main.title" after="-"/>
-        <move element="product.attributes" destination="product.info.details" before="-"/>
         <referenceBlock  name="product.attributes">
             <arguments>
                 <argument name="sort_order" xsi:type="string">10</argument>
@@ -17,5 +15,8 @@
                 <argument name="sort_order" xsi:type="string">20</argument>
             </arguments>
         </referenceBlock>
+        <move element="product.info.sku" destination="page.main.title" after="-"/>
+        <move element="product.attributes" destination="product.info.details" before="-"/>
+        <move element="product.info.media" destination="content" before="-" />
     </body>
 </page>

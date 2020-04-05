@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
-<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="product.info.main">
-            <container name="info.main.description" htmlTag="div" htmlClass="info-main-description" after="product.info.price">
+            <container name="info.main.description" htmlTag="div" htmlClass="info-main-description"
+                       after="product.info.price">
                 <container name="product.info.block.form" htmlTag="div" htmlClass="form-product-description" after="-"/>
             </container>
         </referenceContainer>
@@ -13,7 +15,7 @@
                 </arguments>
             </block>
         </referenceContainer>
-        <referenceBlock name="product.info.addto" template="BaseAutoSound_Catalog::product/view/addto.phtml" />
+        <referenceBlock name="product.info.addto" template="BaseAutoSound_Catalog::product/view/addto.phtml"/>
         <referenceContainer name="product.info.social">
             <block class="Magento\Cms\Block\Block" name="share.product" before="-">
                 <arguments>
@@ -21,14 +23,13 @@
                 </arguments>
             </block>
         </referenceContainer>
-        <referenceBlock name="product.info.details" template="BaseAutoSound_Catalog::product/view/details.phtml" />
-        <referenceBlock name="catalog.product.related" template="BaseAutoSound_Catalog::product/list/items.phtml" />
+        <referenceBlock name="product.info.details" template="BaseAutoSound_Catalog::product/view/details.phtml"/>
+        <referenceBlock name="catalog.product.related" template="BaseAutoSound_Catalog::product/list/items.phtml"/>
         <move element="product.price.final" destination="info.main.description" before="-"/>
         <move element="productalert.stock" destination="info.main.description" after="product.price.final"/>
         <move element="product.info.overview" destination="info.main.description" before="product.info.extrahint"/>
         <move element="product.info.extrahint" destination="info.main.description" before="product.info.block.form"/>
         <move element="product.info" destination="product.info.block.form"/>
-        <move element="catalog.product.related" destination="content" after="product.info.main" />
-        <move element="product.info.media" destination="content" before="-" />
+        <move element="catalog.product.related" destination="content" after="product.info.main"/>
     </body>
 </page>

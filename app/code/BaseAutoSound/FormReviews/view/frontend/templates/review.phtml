@@ -19,7 +19,7 @@
                 class: 'action-review'
             }]
         }}">
-    <?= $block->getChildHtml() ?>
+    <?= $block->getChildHtml(); ?>
 </div>
 <div id="product-review-container" data-role="product-review"></div>
 
@@ -27,7 +27,7 @@
     {
         "*": {
             "Magento_Review/js/process-reviews": {
-                "productReviewUrl": "<?= $block->escapeJs($block->getProductReviewUrl()) ?>",
+                "productReviewUrl": "<?= $block->escapeJs($block->getProductReviewUrl()); ?>",
                 "reviewsTabSelector": "#tab-label-reviews"
             }
         }

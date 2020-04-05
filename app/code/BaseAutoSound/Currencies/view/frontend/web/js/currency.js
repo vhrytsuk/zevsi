@@ -13,15 +13,12 @@ define([
                 var text =  priceElement[i].textContent,
                 indexSum =  text.length - 3,
                 priceProduct = priceElement[i].textContent.slice(0, indexSum),
-                currencyProduct = priceElement[i].textContent.substring(priceElement[i].textContent.length, indexSum);
+                currencyProduct = priceElement[i].textContent.substring(text.length, indexSum);
 
-                if (currencyProduct != 'грн') return;
+                if (currencyProduct !== 'грн') return;
 
                 $(priceElement[i]).replaceWith("<span class='price'>" + priceProduct + "<span class='currency-product'>" + currencyProduct + "</span></span>");
-
-
             }
-
         }();
     }
 );
