@@ -4,5 +4,4 @@ var config = {
             readmore: 'BaseAutoSound_Readmore/js/readmore-options',
         }
     },
-
 };

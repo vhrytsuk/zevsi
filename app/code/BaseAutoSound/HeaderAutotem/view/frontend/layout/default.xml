@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel">
+            <block class="Magento\Cms\Block\Block" name="menu.list.header.top" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">top_header_list</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="city.location.header.top">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">city_​​location</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Cms\Block\Block" name="contact.number.top" after="top.search">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">contact_number</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="phone.callback" after="contact.number.top">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">phone_callback</argument>
+                </arguments>
+            </block>
+            <container name="actions.list.menu" htmlTag="ul" htmlClass="actions-list-icons" after="-" />
+        </referenceContainer>
+        <referenceBlock name="catalog.topnav" template="BaseAutoSound_HeaderAutotem::html/topmenu.phtml">
+            <block class="Magento\Cms\Block\Block" name="additional.menu.info">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">additional_info_menu</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock  name="store_language" as="store_language" template="BaseAutoSound_Languages::switch/languages.phtml" />
+        <move element="my-account-link" destination="actions.list.menu" before="-"/>
+        <move element="wish-list-link" destination="actions.list.menu" after="my-account-link"/>
+        <move element="catalog.compare.link" destination="actions.list.menu" after="wish-list-link"/>
+        <move element="minicart" destination="actions.list.menu" after="-"/>
+        <move element="store_language" destination="header.panel" after="menu.list.header.top"/>
+        <move element="city.location.header.top" destination="header.panel" after="store_language"/>
+    </body>
+</page>
+

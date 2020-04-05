@@ -12158,11 +12158,11 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
 .product.attribute.sku {
   display: flex;
   align-items: center;
+  position: relative;
   background-color: #ffdc2c;
   padding: 6px 11px 7px 18px;
   margin-top: 9px;
   overflow: hidden;
-  position: relative;
 }
 .product.attribute.sku::before {
   content: "";
@@ -12301,7 +12301,7 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
   content: "";
   position: absolute;
   height: 1px;
-  width: 0;
+  width: 75%;
   bottom: 0;
   right: 0;
   background-color: #777777;
@@ -12309,7 +12309,7 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
 }
 .product-info-price .action.view:hover::after,
 .product-info-price .questions-product a:hover::after {
-  width: 75%;
+  width: 0;
 }
 .questions-product {
   padding: 0 15px;
@@ -12386,6 +12386,11 @@ a.hide-text:hover {
   line-height: 7.43px;
   font-weight: 700;
   border: 2px solid #fb2539;
+  transition: background-color 0.3s ease-in-out;
+}
+.product.alert.stock > a:hover {
+  color: #ffffff;
+  background-color: #fb2539;
 }
 .product-item-info .price-box .price-label {
   display: none;
@@ -12613,9 +12618,9 @@ a.hide-text:hover {
   font-size: 15px;
 }
 .block.related .product-item .price-box {
-  margin: 1px 0 22px;
   display: flex;
   align-items: flex-end;
+  margin: 1px 0 22px;
 }
 .block.related .product-item .price-box .price-label {
   display: none;
@@ -12701,9 +12706,9 @@ a.hide-text:hover {
   box-sizing: border-box;
 }
 .page-layout-1column .block.widget.block-viewed-products-grid .owl-carousel .owl-nav {
-  position: absolute;
   display: flex;
   flex-direction: column-reverse;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -12770,10 +12775,9 @@ a.hide-text:hover {
   margin-left: 4px;
 }
 .page-layout-1column .block.widget.block-viewed-products-grid .product-items .product-item-info {
-  flex-direction: row;
-  justify-content: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding-top: 23px;
   height: 100%;
@@ -12783,6 +12787,7 @@ a.hide-text:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: initial;
   height: 100%;
   padding: 0 20px 17px;
 }
@@ -12832,7 +12837,7 @@ a.hide-text:hover {
 }
 .page-layout-1column .block.widget.block-viewed-products-grid .view-rating-product {
   display: flex;
-  margin-top: 9px;
+  margin-top: 7px;
 }
 .page-layout-1column .block.widget.block-viewed-products-grid .view-rating-product .count-coment {
   margin-left: 15px;
@@ -12931,6 +12936,21 @@ a.hide-text:hover {
 .product.info.detailed .tab-parent-title .data.item.title:not(:first-child) {
   margin-left: 60px;
 }
+.product.info.detailed .additional-attributes {
+  width: 100%;
+}
+.product.info.detailed .additional-attributes > tbody > tr:nth-child(2n+1) {
+  background-color: #eff0f3;
+}
+.product.info.detailed .additional-attributes > tbody > tr > th,
+.product.info.detailed .additional-attributes > tbody > tr > td {
+  padding: 0 30px 0 21px;
+  line-height: 45px;
+  font-weight: 400;
+}
+.product.info.detailed .additional-attributes > tbody > tr > th {
+  width: 52%;
+}
 .product.info.detailed .tab-parent-content h3 {
   color: #333333;
   font-size: 19px;
@@ -12938,21 +12958,6 @@ a.hide-text:hover {
 }
 .product.info.detailed .tab-parent-content .data.item.content {
   padding: 20px 0;
-}
-.product.info.detailed .tab-parent-content .data.item.content .additional-attributes {
-  width: 100%;
-}
-.product.info.detailed .tab-parent-content .data.item.content .additional-attributes > tbody > tr:nth-child(2n+1) {
-  background-color: #eff0f3;
-}
-.product.info.detailed .tab-parent-content .data.item.content .additional-attributes > tbody > tr > th,
-.product.info.detailed .tab-parent-content .data.item.content .additional-attributes > tbody > tr > td {
-  padding: 0 30px 0 21px;
-  line-height: 45px;
-  font-weight: 400;
-}
-.product.info.detailed .tab-parent-content .data.item.content .additional-attributes > tbody > tr > th {
-  width: 52%;
 }
 .reviews-parent {
   margin-top: 50px;
@@ -13224,6 +13229,9 @@ a.hide-text:hover {
 .page-header .header.content .block-search .block.block-content {
   padding-right: 6px;
 }
+.page-header .header.content .block-search .block.block-content input {
+  padding-left: 19px;
+}
 .page-header .header.content .block-search .action.search {
   opacity: 1;
   padding-top: 11px;
@@ -13468,6 +13476,7 @@ a.hide-text:hover {
   position: relative;
   cursor: pointer;
   padding: 0 12px 0 17px;
+  white-space: nowrap;
   display: inline-block;
   text-decoration: none;
 }

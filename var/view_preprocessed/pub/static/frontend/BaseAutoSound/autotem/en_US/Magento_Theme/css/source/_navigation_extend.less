@@ -13,11 +13,7 @@
                 justify-content: space-between;
                 padding: 0 55px;
 
-                ul {
-                    padding: 0;
-                }
-
-                .menu-ul {
+                .menu-categories {
                     .dropdown-block();
                     flex-direction: column;
                     width: 100%;
@@ -28,11 +24,11 @@
                     .lib-icon-image(
                         @_icon-image: '@{baseDir}/images/icons/list2.svg',
                         @_icon-image-width: 20px,
-                        @_icon-image-height: 16px
+                        @_icon-image-height: 16px,
+                        @_icon-image-position: after
                     );
                     .flex-element(
-                        @justify:space-between,
-                        @direction: row-reverse
+                        @justify:space-between
                     );
                     font-weight: @font-weight__regular;
                     min-width: 234px;
@@ -44,10 +40,14 @@
                     background-color: @autotem-color-torch-red;
 
                     &:hover {
-                        .menu-ul {
+                        .menu-categories {
                             display: flex;
                         }
                     }
+                }
+
+                ul {
+                    padding: 0;
                 }
             }
         }

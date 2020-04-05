@@ -2,7 +2,8 @@
 //  _____________________________________________
 
 @header-top-background-color: @autotem-color-athens-gray;
-
+@background-color-menu-dropdown: @autotem-color-athens-gray;
+@min-width-menu-list-row: 160px;
 
 //  Common
 //  _____________________________________________
@@ -10,15 +11,15 @@
 & when (@media-common = true) {
     .page-header {
         .panel.header {
-            padding-top: 16px;
-            padding-bottom: 19px;
             display: flex;
             justify-content: space-between;
+            padding-top: 16px;
+            padding-bottom: 19px;
 
             & > .header.links {
-                margin-left: 5%;
                 display: flex;
                 align-items: center;
+                margin-left: 5%;
 
                 .authorization-link {
                     margin-left: 0;
@@ -79,10 +80,8 @@
         }
 
         .header.content {
+            .flex-element(@justify:space-between);
             padding: 0 55px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
 
             &::after,
             &::before {
@@ -99,6 +98,9 @@
 
                 .block.block-content {
                     padding-right: 6px;
+                    input{
+                        padding-left: 19px;
+                    }
                 }
 
                 .action.search {
@@ -122,9 +124,9 @@
                     @icon-down,
                     @font-icon-blanc-theme,
                     @font-size-autotem-average,
-                    @_icon-font-line-height:12px,
-                    @_icon-font-color: @autotem-color-mine-shaft,
-                    @_icon-font-position: after
+                @_icon-font-line-height:12px,
+                @_icon-font-color: @autotem-color-mine-shaft,
+                @_icon-font-position: after
             );
 
             &::after {
@@ -143,8 +145,8 @@
             .list-rooms {
                 position: absolute;
                 padding-left: 0;
-                min-width: 160px;
-                background-color: @autotem-color-athens-gray;
+                min-width: @min-width-menu-list-row;
+                background-color: @background-color-menu-dropdown;
                 box-shadow: @autotem-block-shadow;
                 list-style-type: none;
                 z-index: 10;
@@ -206,10 +208,10 @@
             margin: 0 10px;
 
             a {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-between;
+                .flex-element(
+                    @justify:space-between,
+                    @direction:column
+                );
                 position: relative;
                 height: 100%;
             }
@@ -222,7 +224,7 @@
                         @_icon-image-height: 25px,
                         @_icon-image-margin: 0 0 6px
                     );
-                    display: flex;
+                    display: inline-flex;
 
                     &:hover {
                         &::before {
@@ -241,7 +243,7 @@
                         @_icon-image-width: 24px,
                         @_icon-image-height: 21px
                     );
-                    display: flex;
+                    display: inline-flex;
 
                     &:hover {
                         &::before {
@@ -259,7 +261,7 @@
                         @_icon-image-height: 23px,
                         @_icon-image-margin: 0 0 8px
                     );
-                    display: flex;
+                    display: inline-flex;
 
                     &:hover {
                         &::before {
@@ -283,7 +285,7 @@
                     @_icon-image-margin: 0 0 6px,
                     @_icon-image-text-hide:true
                 );
-                display: flex;
+                display: inline-flex;
 
                 &:hover {
                     &::before {
@@ -330,11 +332,11 @@
             }
 
             a {
+                display: flex;
+                align-items: center;
                 line-height: 7.43px;
                 padding: 0 17px;
                 height: 100%;
-                display: flex;
-                align-items: center;
             }
         }
     }
@@ -362,13 +364,14 @@
             position: relative;
             cursor: pointer;
             padding: 0 12px 0 17px;
+            white-space: nowrap;
             .lib-icon-font(
                     @icon-down,
                     @font-icon-blanc-theme,
                     @font-size-autotem-average,
-                    @_icon-font-line-height:12px,
-                    @_icon-font-color: @autotem-color-mine-shaft,
-                    @_icon-font-position: after
+                @_icon-font-line-height:12px,
+                @_icon-font-color: @autotem-color-mine-shaft,
+                @_icon-font-position: after
             );
 
             &::after {

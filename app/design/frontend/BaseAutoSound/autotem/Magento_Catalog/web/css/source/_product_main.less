@@ -5,7 +5,6 @@
 @product-alert-stock-font-size: @font-size-autotem-medium - 1; // 17px
 @title-related-product-font-size: @font-size-autotem-large - 1; // 27px
 
-
 //  Common
 //  _____________________________________________
 
@@ -19,8 +18,8 @@
     .page-title-wrapper {
         &.product {
             .flex-element(
-                    @justify:space-between,
-                    @align-items:flex-start
+                @justify:space-between,
+                @align-items:flex-start
             );
         }
     }
@@ -28,11 +27,11 @@
     .product.attribute.sku {
         display: flex;
         align-items: center;
+        position: relative;
         background-color: @autotem-color-sunglow;
         padding: 6px 11px 7px 18px;
         margin-top: 9px;
         overflow: hidden;
-        position: relative;
 
         &::before {
             content: "";
@@ -196,7 +195,7 @@
                 content: "";
                 position: absolute;
                 height: 1px;
-                width: 0;
+                width: 75%;
                 bottom: 0;
                 right: 0;
                 background-color: @autotem-color-boulder;
@@ -205,7 +204,7 @@
 
             &:hover {
                 &::after {
-                    width: 75%;
+                    width: 0;
                 }
             }
         }
@@ -282,6 +281,11 @@
             line-height: 7.43px;
             font-weight: @font-weight__bold;
             border: 2px solid @autotem-color-torch-red;
+            transition: background-color .3s ease-in-out;
+            &:hover{
+                color: @autotem-color-white;
+                background-color: @autotem-color-torch-red;
+            }
         }
     }
 
@@ -543,9 +547,9 @@
 
         .product-item {
             .price-box {
-                margin: 1px 0 22px;
                 display: flex;
                 align-items: flex-end;
+                margin: 1px 0 22px;
 
                 .price-label {
                     display: none;
@@ -648,9 +652,9 @@
                 }
 
                 .owl-nav {
-                    position: absolute;
                     display: flex;
                     flex-direction: column-reverse;
+                    position: absolute;
                     top: 0;
                     right: 0;
                     bottom: 0;
@@ -722,19 +726,18 @@
                 }
 
                 .product-item-info {
-                    .flex-element();
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
+                    .flex-element(@direction:column);
                     padding-top: 23px;
                     height: 100%;
                     box-sizing: border-box;
                 }
 
                 .product-item-details {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
+                    .flex-element(
+                        @justify:space-between,
+                        @direction:column,
+                        @align-items:initial
+                    );
                     height: 100%;
                     padding: 0 20px 17px;
 
@@ -790,7 +793,7 @@
 
             .view-rating-product {
                 display: flex;
-                margin-top: 9px;
+                margin-top: 7px;
 
                 .count-coment {
                     margin-left: 15px;
@@ -895,6 +898,27 @@
             }
         }
 
+        .additional-attributes {
+            width: 100%;
+
+            & > tbody > tr {
+                &:nth-child(2n+1) {
+                    background-color: @autotem-color-athens-gray;
+                }
+
+                & > th,
+                & > td {
+                    padding: 0 30px 0 21px;
+                    line-height: 45px;
+                    font-weight: @font-weight__regular;
+                }
+
+                & > th {
+                    width: 52%;
+                }
+            }
+        }
+
         .tab-parent-content {
             h3 {
                 color: @autotem-color-mine-shaft;
@@ -904,27 +928,6 @@
 
             .data.item.content {
                 padding: 20px 0;
-
-                .additional-attributes {
-                    width: 100%;
-
-                    & > tbody > tr {
-                        &:nth-child(2n+1) {
-                            background-color: @autotem-color-athens-gray;
-                        }
-
-                        & > th,
-                        & > td {
-                            padding: 0 30px 0 21px;
-                            line-height: 45px;
-                            font-weight: @font-weight__regular;
-                        }
-
-                        & > th {
-                            width: 52%;
-                        }
-                    }
-                }
             }
         }
     }
@@ -1160,5 +1163,3 @@
         }
     }
 }
-
-

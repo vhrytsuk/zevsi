@@ -22,14 +22,6 @@
             </block>
         </referenceContainer>
         <referenceBlock name="product.info.details" template="BaseAutoSound_Catalog::product/view/details.phtml" />
-
-<!--        <referenceBlock name="view.addto.wishlist" remove="true"/>-->
-        <!--        <referenceContainer name="product.info.addto">-->
-<!--            <block class="Magento\Catalog\Block\Product\View" name="product.info.socialmedia" template="BaseAutoSound_Catalog::product/social/share_social.phtml" before="-"/>-->
-<!--        </referenceContainer>-->
-<!--        <referenceContainer name="content">-->
-<!--            <container name="related.product.slider" htmlClass="relatis" htmlTag="div" after="product.info.media"/>-->
-<!--        </referenceContainer>-->
         <referenceBlock name="catalog.product.related" template="BaseAutoSound_Catalog::product/list/items.phtml" />
         <move element="product.price.final" destination="info.main.description" before="-"/>
         <move element="productalert.stock" destination="info.main.description" after="product.price.final"/>

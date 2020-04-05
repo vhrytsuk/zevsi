@@ -894,13 +894,6 @@ require.config(config);
 })();
 (function() {
 var config = {
-    // deps: ['BaseAutoSound_Catalog/js/owl.carousel'],
-};
-
-require.config(config);
-})();
-(function() {
-var config = {
     deps: ['BaseAutoSound_Currencies/js/currency'],
 };
 
@@ -913,7 +906,6 @@ var config = {
             readmore: 'BaseAutoSound_Readmore/js/readmore-options',
         }
     },
-
 };
 
 require.config(config);
@@ -1018,13 +1010,6 @@ var config = {
         'Magento_Theme/js/responsive',
         'Magento_Theme/js/theme'
     ]
-};
-
-require.config(config);
-})();
-(function() {
-var config = {
-    // deps: ['BaseAutoSound_Catalog/js/owl.carousel']
 };
 
 require.config(config);
