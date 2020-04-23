@@ -1,1 +1,0 @@
-/var/www/html/smileOssWork/app/code/BaseAutoSound/Readmore/view/frontend/web/js/readmore-options.js

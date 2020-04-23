@@ -1,1 +1,0 @@
-/var/www/html/smileOssWork/app/design/frontend/BaseAutoSound/autotem/Magento_Catalog/web/js/product/list/listing.js

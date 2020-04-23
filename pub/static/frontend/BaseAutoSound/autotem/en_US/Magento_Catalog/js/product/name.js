@@ -1,1 +1,0 @@
-/var/www/html/smileOssWork/vendor/magento/module-catalog/view/base/web/js/product/name.js

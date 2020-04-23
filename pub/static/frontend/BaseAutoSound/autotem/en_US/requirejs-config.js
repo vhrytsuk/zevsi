@@ -913,6 +913,18 @@ require.config(config);
 (function() {
 var config = {
     map: {
+        '*' : {
+            memories : 'BaseAutoSound_Sample/js/memories',
+        },
+    },
+
+};
+
+require.config(config);
+})();
+(function() {
+var config = {
+    map: {
         "*": {
             'Magento_Catalog/template/product/name.html':
                 'BaseAutoSound_ViewedProducts/template/product/name.html',
