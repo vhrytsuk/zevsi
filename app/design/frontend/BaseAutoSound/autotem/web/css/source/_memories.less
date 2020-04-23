@@ -28,7 +28,7 @@
             padding: 20px;
             position: absolute;
             border-radius: 5px;
-            background: #1C7CCC;
+            background: linear-gradient(0deg, rgba(159,7,7,1) 0%, rgba(120,109,87,1) 100%);
             box-sizing: border-box;
             backface-visibility: hidden;
         }
@@ -46,6 +46,8 @@
             z-index: 10;
             width: 100%;
             height: 100%;
+            display: flex;
+            flex-direction: column;
             top: 0;
             left: 0;
             right: 0;
@@ -60,7 +62,74 @@
                 text-align: center;
             }
         }
-
+        .blockNamePlayers{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            .namePlayers{
+                border: 1px solid black;
+            }
+        }
+        .buttonActiveGame{
+            width: 250px;
+            height: 80px;
+            color: white;
+            font-size: 24px;
+            font-weight: 900;
+            border-radius: 20px;
+            margin-top: 40px;
+            background-image: linear-gradient(to right, #D31027 0%, #EA384D 51%, #D31027 100%);
+            &:hover{
+                background-position: right center;
+            }
+        }
+        .titleInputName{
+            width: 100%;
+            font-size: 18px;
+            font-weight: 700;
+            padding-left: 20px;
+        }
+        .blockButtonOptions{
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+            height: 60px;
+            padding: 0 20px;
+            width: 100%;
+            button{
+                width: 40%;
+                cursor: pointer;
+                border: none;
+                border-radius: 20px;
+                font-size: 20px;
+                font-weight: 900;
+                color: white;
+            }
+            .completeGame{
+                background-image: linear-gradient(to right, #757F9A 0%, #D7DDE8 51%, #757F9A 100%);
+                &:hover { background-position: right center; }
+            }
+            .nextLevel{
+                background-image: linear-gradient(to right, #DC2424 0%, #4A569D 51%, #DC2424 100%);
+                &:hover { background-position: right center; }
+            }
+        }
+        .numberVictory{
+            position: absolute;
+            left: -200px;
+            font-size: 20px;
+            color: gray;
+            .blockCount{
+                color: white;
+                margin-left: 10px;
+                background-image: linear-gradient(to right, #DC2424 0%, #4A569D 51%, #DC2424 100%);
+                padding: 3px;
+                border-radius: 10px;
+                font-weight: 900;
+            }
+        }
     }
 }
 
