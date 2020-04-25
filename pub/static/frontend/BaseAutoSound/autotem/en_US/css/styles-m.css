@@ -12146,17 +12146,19 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
     margin-left: 0;
   }
 }
-.memories {
-  width: 600px;
-  height: 600px;
-  margin: auto;
+.playingField {
   display: flex;
   flex-wrap: wrap;
   perspective: 800px;
 }
+.memories {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0 40px;
+}
 .memories .memory-cart {
-  width: calc(20%);
-  height: calc(23.333%);
+  width: 120px;
+  height: 140px;
   margin: 5px;
   position: relative;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
@@ -12211,7 +12213,7 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
 }
 .memories .blockNamePlayers .namePlayers {
   border: 1px solid black;
@@ -12237,6 +12239,7 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
 }
 .memories .blockButtonOptions {
   display: flex;
+  width: 70%;
   justify-content: space-between;
   z-index: 10;
   height: 60px;
@@ -12246,7 +12249,7 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
 .memories .blockButtonOptions button,
 .memories .blockButtonOptions .cart.table-wrapper .actions-toolbar > .action,
 .memories .blockButtonOptions .action-gift {
-  width: 40%;
+  width: 30%;
   cursor: pointer;
   border: none;
   border-radius: 20px;
@@ -12267,10 +12270,17 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
   background-position: right center;
 }
 .memories .numberVictory {
-  position: absolute;
-  left: -200px;
   font-size: 20px;
+  height: 80px;
   color: gray;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.memories .numberVictory .levelGame {
+  width: 100%;
+  margin-top: 20px;
+  font-weight: 900;
 }
 .memories .numberVictory .blockCount {
   color: white;
@@ -12279,6 +12289,20 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
   padding: 3px;
   border-radius: 10px;
   font-weight: 900;
+}
+.blockTable {
+  width: 40%;
+}
+.gameRatingTable {
+  width: 100%;
+}
+.gameRatingTable > caption {
+  position: static;
+  height: auto;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 .catalog-product-view p {
   font-family: 'MyriadPro-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
