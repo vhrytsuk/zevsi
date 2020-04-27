@@ -12293,16 +12293,48 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
 .blockTable {
   width: 40%;
 }
+.blockTable .buttonTableClear {
+  width: 150px;
+  margin-top: 20px;
+  outline: 0;
+  border: 0;
+  background-image: linear-gradient(to right, #DC2424 0%, #4A569D 51%, #DC2424 100%);
+  color: white;
+}
 .gameRatingTable {
   width: 100%;
 }
 .gameRatingTable > caption {
   position: static;
   height: auto;
+  color: brown;
   width: 100%;
+  font-weight: 900;
   text-align: center;
   font-size: 20px;
   margin-bottom: 10px;
+}
+.gameRatingTable thead {
+  background: #707070;
+  color: #ffffff;
+}
+.gameRatingTable tbody .place1 {
+  background: #ffd700;
+}
+.gameRatingTable tbody .place2 {
+  background: #c0c0c0;
+}
+.gameRatingTable tbody .place3 {
+  background: #cd7f32;
+  border-bottom: 3px solid #000000;
+}
+.gameRatingTable tbody tr td:first-child {
+  font-size: 16px;
+  font-weight: 900;
+  border-right: 3px solid #000000;
+}
+.gameRatingTable tbody tr td:nth-child(3) {
+  font-weight: 900;
 }
 .catalog-product-view p {
   font-family: 'MyriadPro-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
