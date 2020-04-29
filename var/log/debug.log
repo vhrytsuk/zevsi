@@ -32,3 +32,6 @@
 [2020-04-22 09:36:48] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"DB_PDO_MYSQL_DDL_customer_grid_flat_4"}} []
 [2020-04-22 10:14:25] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"interception"}} []
 [2020-04-22 10:14:39] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"identifier":"LOCKED_RECORD_INFO_SYSTEM_CONFIG"}} []
+[2020-04-28 21:42:23] main.ERROR: Warning: file_put_contents(/var/www/html/smileOssWork/var/cache//mage-tags/mage---2c4_STORE): failed to open stream: Permission denied in /var/www/html/smileOssWork/vendor/colinmollenhour/cache-backend-file/File.php on line 691 [] []
+[2020-04-28 21:42:27] main.ERROR: Warning: file_put_contents(/var/www/html/smileOssWork/var/cache//mage-tags/mage---2c4_STORE): failed to open stream: Permission denied in /var/www/html/smileOssWork/vendor/colinmollenhour/cache-backend-file/File.php on line 691 [] []
+[2020-04-28 21:42:33] main.ERROR: Warning: file_put_contents(/var/www/html/smileOssWork/var/cache//mage-tags/mage---2c4_STORE): failed to open stream: Permission denied in /var/www/html/smileOssWork/vendor/colinmollenhour/cache-backend-file/File.php on line 691 [] []

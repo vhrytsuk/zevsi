@@ -12157,8 +12157,6 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
   margin: 25px 0 40px;
 }
 .memories .memory-cart {
-  width: 120px;
-  height: 140px;
   margin: 5px;
   position: relative;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
@@ -12335,6 +12333,43 @@ fieldset[disabled] .block-event .slider-panel .slider .item .action.event {
 }
 .gameRatingTable tbody tr td:nth-child(3) {
   font-weight: 900;
+}
+.blockGameComplete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  z-index: 10;
+  background: linear-gradient(90deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+}
+.blockGameComplete p {
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+}
+.btnGameComplete {
+  width: 250px;
+  height: 80px;
+  font-size: 24px;
+  margin-top: 20px;
+  outline: 0;
+  border: 0;
+  background-image: linear-gradient(to right, #DC2424 0%, #4A569D 51%, #DC2424 100%);
+  color: white;
+  border-radius: 30px;
+  border: none;
+  transition: scale .3s;
+}
+.btnGameComplete:hover {
+  background-image: linear-gradient(to right, #DC2424 0%, #4A569D 51%, #DC2424 100%);
+  border: none;
+  color: white;
+  transform: scale(1.1);
 }
 .catalog-product-view p {
   font-family: 'MyriadPro-Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
