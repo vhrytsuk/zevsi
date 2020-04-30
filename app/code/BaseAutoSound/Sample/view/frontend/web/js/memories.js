@@ -14,8 +14,8 @@ define([
                 gameVictoryBlock: 'gameVictory',
                 widthPlayingFieldInitially: 600,
                 heightPlayingFieldInitially: 600,
-                widthCart : 120,
-                heightCart : 140,
+                widthCart: 120,
+                heightCart: 140,
                 numberCells: [1, 1, 2, 2],
                 numberMoves: 0,
                 victory: 0,
@@ -35,18 +35,18 @@ define([
                 flipCartClass: 'flip',
                 nextLevel: 'nextLevel',
                 blockTable: 'blockTable',
-                titleTableRating : 'Топ 3 кожного рівня',
+                titleTableRating: 'Топ 3 кожного рівня',
                 blockTableCleatText: 'Очистити таблицю',
                 buttonTableClear: 'buttonTableClear',
                 completeGame: 'completeGame',
                 textButtonCompleteGame: 'Завершити гру',
                 textButtonNextLevel: 'Наступний рівень',
-                textNumberVictory : 'Кількість ходів',
-                textLabelInput : 'Введіть ваше імя',
+                textNumberVictory: 'Кількість ходів',
+                textLabelInput: 'Введіть ваше імя',
                 blockButton: 'blockButtonOptions',
-                blockGameComplete : 'blockGameComplete',
-                textGameComplete : 'Вітаємо ви пройшли всі рівні',
-                textButtonComplete : 'Почати спочатку',
+                blockGameComplete: 'blockGameComplete',
+                textGameComplete: 'Вітаємо ви пройшли всі рівні',
+                textButtonComplete: 'Почати спочатку',
                 buttonGameComplete: 'btnGameComplete',
                 checkOpen: false,
                 hasFlippedCard: false,
@@ -66,19 +66,33 @@ define([
                     arrActiveCart: [],
                     pieceGame: null,
                     winningMoves: 0,
-                    gameOver: true,
+                    gameOver: 'cart',
                 },
+                gameNonOverLocalstorage: 'gameNotOver',
+                checkingPageReload: true,
             },
 
             _create: function () {
-                this._startGame();
+                this._statePlay();
             },
 
             _startGame: function () {                        //по натисканню кнопки починається гра зявляється поле для вводу
+                this._createBlockEnterName();
+                this._createTable();
+            },
+
+            _createBlockEnterName : function(){
                 var buttonActiveGame = this._createElem('button', {'class': this.options.buttonActiveGame}, $.mage.__(this.options.buttonTextActiveGame)),
                     blockNamePlayers = this._createElem('div', {'class': this.options.blockNamePlayers}, false),
-                    nameInput = this._createElem('input', {'class': this.options.namePlayers, 'type': 'text', 'id': this.options.namePlayers}, false),
-                    titleInputName = this._createElem('label', {'class': this.options.titleInputName, 'for': this.options.namePlayers}, $.mage.__(this.options.textLabelInput));
+                    nameInput = this._createElem('input', {
+                        'class': this.options.namePlayers,
+                        'type': 'text',
+                        'id': this.options.namePlayers
+                    }, false),
+                    titleInputName = this._createElem('label', {
+                        'class': this.options.titleInputName,
+                        'for': this.options.namePlayers
+                    }, $.mage.__(this.options.textLabelInput));
 
                 blockNamePlayers.appendChild(titleInputName);
                 blockNamePlayers.appendChild(nameInput);
@@ -86,7 +100,46 @@ define([
                 this.options.wrap.appendChild(blockNamePlayers);
 
                 buttonActiveGame.addEventListener('click', this._goGame.bind(this));   //активує гру
-                this._createTable();
+            },
+
+            _statePlay: function () {       //перевіряємо наявність збереженої гри
+                var gameNotOver = this._getGameStateLocalstorage();
+                if (gameNotOver) {
+                    this._runSavedGame(gameNotOver);
+                } else {
+                    this._startGame();
+                }
+            },
+
+            _runSavedGame: function (savedGame) {       //новий сценарій коли дані збережені в локалсторедж
+                var stateGameOver = savedGame.gameOver,
+                    namePlay = savedGame.namePlay,
+                    level = savedGame.level,
+                    numberMoves = savedGame.numberMoves,
+                    arrNumberCart = savedGame.arrNumberCart,
+                    activeCart = savedGame.arrActiveCart,
+                    winningMoves = savedGame.winningMoves,
+                    table = document.querySelector(`.${this.options.blockTable}`),
+                    blockNamePlayers = document.querySelector(`.${this.options.blockNamePlayers}`);
+
+
+                this.options.nameSweatPlayer = namePlay;
+                this.options.numberMoves = numberMoves;
+                this.options.level = level;
+                this.options.victory = winningMoves;
+                this.options.numberCells = arrNumberCart;
+                this.options.stateOfPlay.arrActiveCart = activeCart;
+                //
+                // // this._startGame();
+                // // table.remove();
+                // // blockNamePlayers.style.display = 'none';
+                //
+                if (savedGame.gameOver === 'gameVictory'){
+                   this._gameVictory(savedGame);
+                }
+                else {
+                    this._createGame(savedGame);
+                }
             },
 
             _goGame: function (e) {             //якщо введене імя менше 3 символів гра не починається
@@ -97,9 +150,35 @@ define([
                 else {
                     this._pushName(valueInputName);
                     this._createGame();
+
                     table.remove();
                     e.target.parentElement.style.display = 'none';
                 }
+            },
+
+            _getGameStateLocalstorage: function () {      //отримуємо дані стану гри з локалсторедж
+                if (localStorage.getItem(this.options.gameNonOverLocalstorage)) {
+                    return JSON.parse(localStorage.getItem(this.options.gameNonOverLocalstorage));
+                } else {
+                    return;
+                }
+            },
+
+            _saveGameState: function () {   //зберігаємо стан гри в локалсторедж
+                var gameNotOver = this.options.gameNonOverLocalstorage;
+                localStorage.setItem(gameNotOver, JSON.stringify(this.options.stateOfPlay));
+            },
+
+            _addGameStateArr: function () {
+                var stategame = this._getGameStateLocalstorage();
+
+                this.options.stateOfPlay.numberMoves = this.options.numberMoves;
+                this.options.stateOfPlay.level = this.options.level;
+                this.options.stateOfPlay.namePlay = this.options.nameSweatPlayer;
+                this.options.stateOfPlay.arrNumberCart = this.options.numberCells;
+                this.options.stateOfPlay.winningMoves = this.options.victory;
+
+                this._saveGameState();
             },
 
             _pushName: function (valueInputName) {     //додаємо імя даного гравця в змінну
@@ -138,6 +217,7 @@ define([
                 this.options.numberMoves++;
                 if (this.options.firstCard.dataset.element === this.options.secondCard.dataset.element) {
                     this.options.victory += 2;
+                    this.options.stateOfPlay.arrActiveCart.push(this.options.secondCard.dataset.element);
                     if (this.options.victory === this.options.numberCells.length) {
                         this.options.numberCells.length > 24 ? this._createBlockGameComplete() : this._gameVictory();
                         this._saveDataGame();
@@ -145,9 +225,10 @@ define([
                 } else {
                     this._unflipCards();
                 }
+                this._addGameStateArr();
             },
 
-            _createBlockGameComplete : function(){
+            _createBlockGameComplete: function () {
                 var wrap = this.options.wrap,
                     blockGameComplete = this._createElem('div', {'class': this.options.blockGameComplete}, false),
                     textGameComplete = this._createElem('p', {}, $.mage.__(`Вітаємо ${this.options.nameSweatPlayer} ти пройшов(шла) всі рівні`)),
@@ -159,7 +240,7 @@ define([
 
                 // this._saveDataGame();
                 // this._addToLocalStorage();
-                buttonGameComplete.addEventListener('click', this._resetGame.bind(this,blockGameComplete));
+                buttonGameComplete.addEventListener('click', this._resetGame.bind(this, blockGameComplete));
             },
 
 
@@ -182,12 +263,13 @@ define([
                 this.options.secondCard = this.options.firstCard = null;
             },
 
-            _gameVictory: function () {                //функція створює блок виграшу коли всі картки відкриті
-                var gameVictotyBlock = this._createElem('div', {'class': this.options.gameVictoryBlock}, false),
+            _gameVictory: function (parameter) {                //функція створює блок виграшу коли всі картки відкриті
+                var gameVictotyBlock = this._createElem('div', {'class':  this.options.gameVictoryBlock}, false),
                     playerWon = this.options.nameSweatPlayer,
                     wrap = this.options.wrap,
-                    gameVictotyBlockText = this._createElem('p', false, $.mage.__(`Вітаємо ${playerWon} ти пройшов ${this.options.level} Рівень за ${this.options.numberMoves} ${this.options.numberMoves <= 4 ? 'ходи' : 'ходів'}`)),
-                    buttonNextLevel = this._createElem('button', {'class': this.options.nextLevel},$.mage.__(this.options.textButtonNextLevel)),
+                    gameVictotyBlockText = this._createElem('p', false,
+                        $.mage.__(`Вітаємо  ${parameter ? parameter.namePlay : playerWon} ти пройшов ${parameter ? parameter.level : this.options.level} Рівень за ${parameter ? parameter.numberMoves : this.options.numberMoves} ${this.options.numberMoves <= 4 ? 'ходи' : 'ходів'}`)),
+                    buttonNextLevel = this._createElem('button', {'class': this.options.nextLevel}, $.mage.__(this.options.textButtonNextLevel)),
                     buttonCompleteGame = this._createElem('button', {'class': this.options.completeGame}, $.mage.__(this.options.textButtonCompleteGame)),
                     blockButton = this._createElem('div', {'class': this.options.blockButton}, false);
 
@@ -198,11 +280,23 @@ define([
                 gameVictotyBlock.appendChild(blockButton);
                 wrap.appendChild(gameVictotyBlock);
 
+
                 // this._saveDataGame();
                 // this._addToLocalStorage();
 
-                buttonNextLevel.addEventListener('click', this._nextLevel.bind(this,gameVictotyBlock));         //активація наступного рівня
-                buttonCompleteGame.addEventListener('click', this._resetGame.bind(this,gameVictotyBlock));       //завершення гри
+                this.options.stateOfPlay.gameOver = 'gameVictory';
+                this._addGameStateArr();
+
+                buttonNextLevel.addEventListener('click', this._nextLevel.bind(this, gameVictotyBlock));         //активація наступного рівня
+                buttonCompleteGame.addEventListener('click', this._resetGame.bind(this, gameVictotyBlock));       //завершення гри
+            },
+
+            _removeStateGame : function(){
+                var saveLocalstorageGame = localStorage.getItem(this.options.gameNonOverLocalstorage);       //якщо дані є в локалстореджі при закінченні гри видаляємо їх
+                if (saveLocalstorageGame) {
+                    localStorage.removeItem(this.options.gameNonOverLocalstorage);
+                }
+                this._resetGameState();
             },
 
             _saveDataGame: function () {       //додаємо дані гри в  масив
@@ -230,15 +324,31 @@ define([
                 this._createTable();
                 deleteBlock.remove();
 
-                blockNamePlayers.style.display = 'flex';
-                namePlayers.value = null;
+                if (blockNamePlayers){
+                    blockNamePlayers.style.display = 'flex';
+                    namePlayers.value = null;
+                }else {
+                    this._createBlockEnterName();
+                }
 
                 if (numberVictory) numberVictory.remove();
                 this._initialState();
                 this._refreshGame();
+                this._removeStateGame();
             },
 
-            _initialState : function(){
+            _resetGameState : function(){
+                this.options.stateOfPlay.namePlay = null;
+                this.options.stateOfPlay.level = null;
+                this.options.stateOfPlay.numberMoves = null;
+                this.options.stateOfPlay.arrNumberCart = [];
+                this.options.stateOfPlay.arrActiveCart = [];
+                this.options.stateOfPlay.pieceGame = null;
+                this.options.stateOfPlay.winningMoves = 0;
+                this.options.stateOfPlay.gameOver = 'cart';
+            },
+
+            _initialState: function () {
                 this.options.checkVictory = false;
                 this.options.numberMoves = 0;
                 this.options.heightPlayingFieldInitially = 600;
@@ -247,33 +357,29 @@ define([
                 this.options.heightCart = 140;
                 this.options.level = 1;
                 this.options.numberCells = [1, 1, 2, 2];  // при закінченні гри вертаємо ігрове поле в початковий стан
-
             },
 
-            _increasingFieldPlay : function(){
+            _increasingFieldPlay: function () {
                 var arr = this.options.numberCells,
                     countArrCells = arr.length;
                 var countCart = 0;
 
-                if (countArrCells < 8){
-                    for (var i = countArrCells - 1; i<= countArrCells; i++){
-                        arr.push(i,i);
+                if (countArrCells < 8) {
+                    for (var i = countArrCells - 1; i <= countArrCells; i++) {
+                        arr.push(i, i);
                     }
-                }
-                else if (countArrCells < 12){
-                    for (var i = countArrCells / 2  + 1; i<= countArrCells / 2 + 2; i++){
-                                 arr.push(i,i);
-                             }
-                }
-                else if(countArrCells < 16){
-                    for (var i = countArrCells / 2  + 1; i<= countArrCells / 2 + 4; i++){
-                        arr.push(i,i);
+                } else if (countArrCells < 12) {
+                    for (var i = countArrCells / 2 + 1; i <= countArrCells / 2 + 2; i++) {
+                        arr.push(i, i);
+                    }
+                } else if (countArrCells < 16) {
+                    for (var i = countArrCells / 2 + 1; i <= countArrCells / 2 + 4; i++) {
+                        arr.push(i, i);
                     }
                     this.options.widthPlayingFieldInitially = 700;
-                }
-                else if (countArrCells < 21){
-                    for (var i = countArrCells / 2  + 1; i<= countArrCells / 2 + 6; i++){
-                        arr.push(i,i);
+                } else if (countArrCells < 21) {
+                    for (var i = countArrCells / 2 + 1; i <= countArrCells / 2 + 6; i++) {
+                        arr.push(i, i);
                     }
                     this.options.widthPlayingFieldInitially = 900;
                     this.options.widthCart = 100;
@@ -284,6 +390,8 @@ define([
             _nextLevel: function (deleteBlock) {          //при натискані кнопки включається наступний рівень
                 this._increasingFieldPlay();
                 deleteBlock.remove();
+                this.options.stateOfPlay.arrActiveCart = [];
+                this._addGameStateArr();
                 this.options.level++;
                 this.options.numberMoves = 0;
                 this._refreshGame();
@@ -296,33 +404,60 @@ define([
                     numberVictory = document.querySelector(`.${this.options.blockNumberVictory}`);
 
                 if (numberVictory) numberVictory.remove();
+                if (playingField)  playingField.remove();
                 this.options.victory = 0;
-                playingField.remove();
-
             },
 
-            _createGame: function () {      //створення поля гри
+            _createGame: function (parameter) {      //створення поля гри
                 var blockNumberVictory = this._createElem('div', {'class': this.options.blockNumberVictory}, $.mage.__(this.options.textNumberVictory)),
-                    countVictory = this._createElem('span', {'class': this.options.blockCountVictory}, `${this.options.victory}`),
-                    levelGame = this._createElem('span', {'class': this.options.levelBlock}, $.mage.__(`Рівень ${this.options.level}`)),
-                    createCart = this._createCart();
+                    countVictory = this._createElem('span', {'class': this.options.blockCountVictory}, `${parameter ? parameter.numberMoves : this.options.victory}`),
+                    levelGame = this._createElem('span', {'class': this.options.levelBlock}, $.mage.__(`Рівень ${parameter ? parameter.level :this.options.level}`)),
+                    createCart = this._createCart(parameter);
+
+
+
+                this.options.stateOfPlay.gameOver = 'cart';
+                this._addGameStateArr();
 
                 blockNumberVictory.appendChild(countVictory);
                 blockNumberVictory.appendChild(levelGame);
 
                 this.options.wrap.appendChild(blockNumberVictory);
                 this.options.wrap.appendChild(createCart);
+                var cart = document.querySelectorAll(`.${this.options.memoryCart}`);
+
+                if (parameter){
+                    var activeCart = parameter.arrActiveCart;
+
+                    cart.forEach((carts)=>{
+                        for (var i =0; i< activeCart.length;i++){
+                            if (carts.dataset.element == activeCart[i]){
+                                carts.classList.add('flip');
+                            }
+                        }
+                    });
+                }
+
                 this._flipCart();
             },
 
-            _createCart: function () {        //створює  гральне поле та картки
+            _createCart: function (parameter) {        //створює  гральне поле та картки
                 var arr = this.options.numberCells,
                     playingField = this._createElem('div', {'class': this.options.playingField}, false);
 
+                if (parameter){
+                    var arrCart = parameter.arrNumberCart,
+                        arrActiveCart = parameter.arrActiveCart;
+                }else {
+                     arrCart = [];
+                    arrActiveCart = [];
+                }
                 // this._mixCart(arr);
-
                 for (var i = 0; i < arr.length; i++) {
-                    var blockCart = this._createElem('div', {'class': this.options.memoryCart, 'data-element': `${arr[i]}`}, false),
+                    var blockCart = this._createElem('div', {
+                            'class': this.options.memoryCart,
+                            'data-element': `${arr[i]}`
+                        }, false),
                         frontFace = this._createElem('div', {'class': this.options.frontFaceCart}, `${arr[i]}`),
                         backFace = this._createElem('div', {'class': this.options.backFaceCart}, false);
 
@@ -330,14 +465,18 @@ define([
                     blockCart.appendChild(backFace);
                     playingField.appendChild(blockCart);
 
-                this._cardOptions(blockCart);
+                    this._cardOptions(blockCart);
+
                 }
+
                 this._fieldParameters(playingField);
 
                 return playingField;
             },
 
-            _cardOptions : function(blockCart){
+
+
+            _cardOptions: function (blockCart) {
                 blockCart.style.width = this.options.widthCart + 'px';
                 blockCart.style.height = this.options.heightCart + 'px';
             },
@@ -367,7 +506,7 @@ define([
                 for (var key in bestPlayers) {    //створюємо таблицю з багатовимірного масива
                     for (var key2 in bestPlayers[key]) {
                         playerPlace = +key2 + 1;
-                        var tr = this._createElem('tr', {'class':`place${playerPlace}`}, false),
+                        var tr = this._createElem('tr', {'class': `place${playerPlace}`}, false),
                             countPlace = this._createElem('td', {}, playerPlace);
                         tr.appendChild(countPlace);
                         for (var key3 in bestPlayers[key][key2]) {
@@ -398,7 +537,7 @@ define([
 
             _rewriteArr: function () {             //переписую масив з одновимірного в багатовимірний
                 var sortTable = this._sortTable(),
-                     multiArr = [];
+                    multiArr = [];
 
                 if (sortTable) {
                     for (var i = 0; i < sortTable.length; i++) {
