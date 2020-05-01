@@ -151,7 +151,6 @@ define([
                 var valueInputName = e.target.parentNode.querySelector(`.${this.options.namePlayers}`).value,
                     table = document.querySelector(`.${this.options.blockTable}`);
 
-
                 if (valueInputName.length < 3) return;
                 else {
                     this._pushName(valueInputName);
