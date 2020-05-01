@@ -902,9 +902,9 @@ require.config(config);
 (function() {
 var config = {
     map: {
-        "*": {
-            readmore: 'BaseAutoSound_Readmore/js/readmore-options',
-        }
+        '*' : {
+            memories : 'BaseAutoSound_Memories/js/memories',
+        },
     },
 };
 
@@ -913,11 +913,10 @@ require.config(config);
 (function() {
 var config = {
     map: {
-        '*' : {
-            memories : 'BaseAutoSound_Sample/js/memories',
-        },
+        "*": {
+            readmore: 'BaseAutoSound_Readmore/js/readmore-options',
+        }
     },
-
 };
 
 require.config(config);

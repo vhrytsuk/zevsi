@@ -107,10 +107,6 @@
                 font-weight: 900;
                 color: white;
             }
-            .completeGame{
-                background-image: linear-gradient(to right, #757F9A 0%, #D7DDE8 51%, #757F9A 100%);
-                &:hover { background-position: right center; }
-            }
             .nextLevel{
                 background-image: linear-gradient(to right, #DC2424 0%, #4A569D 51%, #DC2424 100%);
                 &:hover { background-position: right center; }
@@ -125,7 +121,7 @@
             align-items: flex-start;
             .levelGame{
                 width: 100%;
-                margin-top: 20px;
+                margin: 20px 0;
                 font-weight: 900;
             }
             .blockCount{
@@ -137,6 +133,10 @@
                 font-weight: 900;
             }
         }
+    }
+    .completeGame{
+        background-image: linear-gradient(to right, #757F9A 0%, #D7DDE8 51%, #757F9A 100%);
+        &:hover { background-position: right center; }
     }
     .blockTable{
         width: 40%;

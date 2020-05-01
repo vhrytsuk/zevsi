@@ -1,0 +1,1 @@
+/var/www/html/smileOssWork/app/code/BaseAutoSound/Memories/view/frontend/web/js/memories.js
